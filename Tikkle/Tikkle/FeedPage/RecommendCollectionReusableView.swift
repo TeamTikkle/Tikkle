@@ -7,15 +7,28 @@
 
 import UIKit
 
-class RecommendCollectionReusableView: UICollectionReusableView {
+class RecommendCollectionReusableView: UICollectionReusableView, Reusable {
     
-    @IBOutlet weak var hotButton: UIButton!
+    private var hotButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .white
+        button.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        button.layer.cornerRadius = 10
+        button.layer.masksToBounds = true
+        return button
+    }()
     
-    override func awakeFromNib() {
-        hotButton.backgroundColor = .white
-        hotButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        hotButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        hotButton.layer.cornerRadius = 10
-        hotButton.layer.masksToBounds = true
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addViews()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func addViews() {
+        self.addSubview(hotButton)
     }
 }

@@ -20,6 +20,7 @@ class TikklePageViewController: UIViewController {
     @IBOutlet weak var TikklePageInfo: UILabel!
     @IBOutlet weak var challengeButton: UIButton!
     @IBOutlet weak var TikklePageCollectionView: UICollectionView!
+    private let tikklePageCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +28,8 @@ class TikklePageViewController: UIViewController {
         navigationSetting()
         uiSet()
         
-        TikklePageCollectionView.delegate = self
-        TikklePageCollectionView.dataSource = self
+        tikklePageCollectionView.delegate = self
+        tikklePageCollectionView.dataSource = self
     }
     
     //MARK: - TikklePage NavigationBar 커스텀

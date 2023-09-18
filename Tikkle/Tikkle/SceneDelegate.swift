@@ -16,7 +16,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        let window = UIWindow(windowScene: windowScene)
+        window.windowScene = windowScene
+        window.rootViewController = MainViewController()
+        window.makeKeyAndVisible()
+        self.window = window
+    }
+    
+    private func configureNavigationBar(navigationController: UINavigationController) {
+        let navigationBar = navigationController.navigationBar
+        let naviBarAppearance = UINavigationBarAppearance()
+        naviBarAppearance.configureWithTransparentBackground()
+        navigationBar.standardAppearance = naviBarAppearance
+        navigationBar.scrollEdgeAppearance = naviBarAppearance
+        
+        let logoImage = UIImage(named: "navi_Logo")
+        let logoImageView = UIImageView(image: logoImage)
+        logoImageView.contentMode = .scaleAspectFit
+        let logoItem = UIBarButtonItem(customView: logoImageView)
+        navigationController.navigationItem.leftBarButtonItem = logoItem
+        
+        let bellImage = UIImage(named: "navi_Bell")
+        let bellImageView = UIImageView(image: bellImage)
+        bellImageView.contentMode = .scaleAspectFit
+        let bellItem = UIBarButtonItem(customView: bellImageView)
+        navigationController.navigationItem.rightBarButtonItem = bellItem
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

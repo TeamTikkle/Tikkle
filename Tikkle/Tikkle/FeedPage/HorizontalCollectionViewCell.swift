@@ -12,7 +12,7 @@ class HorizontalCollectionViewCell: UICollectionViewCell {
     static let identifier: String = "\(HorizontalCollectionViewCell.self)"
     private let recommendCollectionView: UICollectionView = {
         let flow = CarouselLayout()
-        flow.itemSize = CGSize(width: 280.0, height: 260.0)
+        flow.itemSize = CGSize(width: 280.0, height: 444.0)
         let cv = UICollectionView(frame: .zero, collectionViewLayout: flow)
         cv.backgroundColor = .clear
         return cv
@@ -33,7 +33,7 @@ class HorizontalCollectionViewCell: UICollectionViewCell {
         recommendCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         recommendCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         recommendCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        recommendCollectionView.heightAnchor.constraint(equalToConstant: 258).isActive = true
+        recommendCollectionView.heightAnchor.constraint(equalToConstant: 444).isActive = true
     }
     
     required init?(coder: NSCoder) {

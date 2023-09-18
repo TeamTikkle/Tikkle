@@ -11,7 +11,7 @@ import SnapKit
 class CreateTikklePageViewController: UIViewController {
     
     private var mainScrollView: UIScrollView = UIScrollView()
-    private var photoImageView: UIImageView = UIImageView(image: UIImage(named: "addPhoto"))
+    private var photoImageView: UIImageView = UIImageView(image: UIImage(named: "addphoto"))
     private let challengeNameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 17, weight: .bold)
@@ -56,7 +56,7 @@ class CreateTikklePageViewController: UIViewController {
         return stackView
     }()
     private let tikkleListManager: TikkleListManager = TikkleListManager()
-    private let mainViewMargin: CGFloat = 20
+    private let mainViewPadding: CGFloat = 20
     private let contentSectionPadding: CGFloat = 40
     private let contentPadding: CGFloat = 20
     
@@ -72,6 +72,7 @@ class CreateTikklePageViewController: UIViewController {
 private extension CreateTikklePageViewController {
     
     func setup() {
+        mainViewSetup()
         addViews()
         autoLayoutSetup()
         keyboardNotificationSetup()
@@ -80,6 +81,10 @@ private extension CreateTikklePageViewController {
         challengeNameTextFieldSetup()
         infoTextViewSetup()
         stackViewSetup()
+    }
+    
+    func mainViewSetup() {
+        view.backgroundColor = .black
     }
     
     func addViews() {
@@ -97,12 +102,12 @@ private extension CreateTikklePageViewController {
         let contentLayout = mainScrollView.contentLayoutGuide
         let frameLayout = mainScrollView.frameLayoutGuide
         mainScrollView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(mainViewMargin)
+            make.edges.equalToSuperview().inset(mainViewPadding)
         }
         photoImageView.snp.makeConstraints { make in
             make.height.width.equalTo(142)
             make.top.equalTo(contentLayout.snp.top).inset(contentPadding)
-            make.leading.equalTo(contentLayout.snp.leading).inset(contentPadding)
+            make.leading.equalTo(contentLayout.snp.leading)
         }
         challengeNameLabel.snp.makeConstraints { make in
             make.top.equalTo(photoImageView.snp.bottom).inset(-contentSectionPadding)
@@ -118,7 +123,9 @@ private extension CreateTikklePageViewController {
         }
         infoTextView.snp.makeConstraints { make in
             make.top.equalTo(infoLabel.snp.bottom).inset(-contentPadding)
-            make.leading.trailing.equalToSuperview()
+            make.leading.equalTo(contentLayout.snp.leading)
+            make.trailing.equalTo(contentLayout.snp.trailing)
+            make.width.equalTo(frameLayout.snp.width)
             make.height.equalTo(100)
         }
         tikkleNameLable.snp.makeConstraints { make in
@@ -127,9 +134,8 @@ private extension CreateTikklePageViewController {
         }
         tikkleVerticalStack.snp.makeConstraints { make in
             make.top.equalTo(tikkleNameLable.snp.bottom).inset(-contentSectionPadding)
-            make.leading.equalTo(mainScrollView.contentLayoutGuide.snp.leading)
-            make.bottom.equalTo(mainScrollView.contentLayoutGuide.snp.bottom)
-            make.width.equalTo(mainScrollView.frameLayoutGuide.snp.width).inset(-40)
+            make.leading.equalTo(contentLayout.snp.leading)
+            make.bottom.equalTo(contentLayout.snp.bottom)
         }
         
     }
