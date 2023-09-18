@@ -11,6 +11,9 @@ import SnapKit
 
 class TikkleListPageViewController: UIViewController {
     
+    var dropdownView: UIView!
+    var dropdownLabels: [UILabel]!
+    
     //MARK: -티끌리스트매니저 모델 생성 (이제부터 이 매니저 모델을 통해 데이터를 매니징할 수 있음)
     var tikkleListManager = TikkleListManager()
     
@@ -34,6 +37,32 @@ class TikkleListPageViewController: UIViewController {
         return label
     }()
     
+    let dropdownButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("  진행중", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        
+        // 버튼 크기 설정
+        button.snp.makeConstraints { make in
+            make.width.equalTo(100)
+            make.height.equalTo(37)
+        }
+        
+        // 버튼 테두리 색상 설정
+        button.layer.borderColor = UIColor.green.cgColor
+        button.layer.borderWidth = 1.0
+        button.layer.cornerRadius = 5
+        button.contentHorizontalAlignment = .left
+        button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+
+        
+        // 버튼 배경색 설정
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.05)
+        
+        return button
+    }()
+
+    
     let tableView: UITableView = {
         let tableView = UITableView()
         return tableView
@@ -55,6 +84,9 @@ class TikkleListPageViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupTableView()
+        setupDropdownView()
+        
+
     }
     
     @objc func createTikkleButtonClick() {
@@ -75,6 +107,84 @@ class TikkleListPageViewController: UIViewController {
            // 추가적인 테이블뷰 설정 (옵션)
            tableView.tableFooterView = UIView()  // 빈 셀에 대한 구분선 제거
        }
+    func setupDropdownView() {
+        dropdownView = UIView()
+        dropdownView.backgroundColor = .white
+        dropdownView.isHidden = true
+        view.addSubview(dropdownView)
+        
+        dropdownLabels = ["  전체", "  진행중", "  완료"].map { text in
+            let label = UILabel()
+            label.text = text
+            label.textColor = .black
+            label.isUserInteractionEnabled = true
+            label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleLabelTap(_:))))
+            return label
+        }
+        
+        let stackView = UIStackView(arrangedSubviews: dropdownLabels)
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        dropdownView.addSubview(stackView)
+        
+        // Constraints 설정
+        dropdownView.snp.makeConstraints { make in
+            make.top.equalTo(dropdownButton.snp.bottom)
+            make.trailing.equalTo(view).offset(-20)
+            make.width.equalTo(100)
+            make.height.equalTo(150)
+        }
+        
+        stackView.snp.makeConstraints { make in
+            make.edges.equalTo(dropdownView)
+        }
+    }
+    
+    func setupDropdownButton() {
+        // dropdownButton을 뷰에 추가
+        view.addSubview(dropdownButton)
+        
+        // 이후 SnapKit을 사용해 제약 조건 설정
+        dropdownButton.snp.makeConstraints { make in
+            make.centerY.equalTo(titleLabel)
+            make.trailing.equalTo(view).offset(-20)
+            make.width.equalTo(100)
+            make.height.equalTo(37)
+        }
+        
+        // 버튼 테두리 색상 설정
+        dropdownButton.layer.borderColor = UIColor.green.cgColor
+        dropdownButton.layer.borderWidth = 1.0
+        dropdownButton.layer.cornerRadius = 5
+        
+        // 버튼 배경색 설정
+        dropdownButton.backgroundColor = UIColor.white.withAlphaComponent(0.05)
+        
+        // 버튼 액션 설정
+        dropdownButton.addTarget(self, action: #selector(toggleDropdown), for: .touchUpInside)
+        
+        if let dropdownImage = UIImage(named: "dropdown") {
+            dropdownButton.setImage(dropdownImage, for: .normal)
+        }
+        
+        // 텍스트와 이미지의 위치를 조정
+        dropdownButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 80, bottom: 0, right: 10)
+ 
+        dropdownButton.contentHorizontalAlignment = .left
+    }
+
+
+    @objc func toggleDropdown() {
+        dropdownView.isHidden = !dropdownView.isHidden
+    }
+
+
+    @objc func handleLabelTap(_ gesture: UITapGestureRecognizer) {
+        if let label = gesture.view as? UILabel {
+            dropdownButton.setTitle(label.text, for: .normal)
+            dropdownView.isHidden = true
+        }
+    }
     
     func setupUI() {
         
@@ -86,11 +196,16 @@ class TikkleListPageViewController: UIViewController {
             make.leading.equalTo(view).offset(20)
         }
         
+        setupDropdownButton()
+
+        
         view.addSubview(countLabel)
         countLabel.snp.makeConstraints { make in
             make.bottom.equalTo(titleLabel)
             make.leading.equalTo(titleLabel.snp.trailing).offset(10)
         }
+        
+       
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
