@@ -107,6 +107,7 @@ class TikkleListPageViewController: UIViewController {
         createTikkleButton.setAttributedTitle(attributedText, for: .normal)
         createTikkleButton.backgroundColor = UIColor.mainColor
         createTikkleButton.layer.cornerRadius = 17
+        createTikkleButton.addTarget(self, action: #selector(createTikkleButtonClick), for: .touchUpInside)
         
         view.backgroundColor = .black
         
@@ -116,6 +117,12 @@ class TikkleListPageViewController: UIViewController {
         mainLabel.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         subLabel.font = UIFont.systemFont(ofSize: 15, weight: .black)
         subLabel.textColor = UIColor.subTitleColor
+    }
+    
+    @objc func createTikkleButtonClick() {
+        let vc = CreateTikklePageViewController()
+        vc.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -163,19 +170,6 @@ extension TikkleListPageViewController: UITableViewDataSource {
         
         // 공개 비공개 함깨 버튼 스택뷰 비우기
         cell.edgeStackView.arrangedSubviews.forEach{ $0.removeFromSuperview() }
-        //isPrivateButton-----------------------------------------------------------------
-        if tikkleListManager[indexPath.row].isPrivate {
-            let privateTrueButton = CustomButton.makePrivateTrueButton()
-            privateTrueButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-            privateTrueButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
-            cell.edgeStackView.addArrangedSubview(privateTrueButton)
-        } else {
-            let privateFalseButton = CustomButton.makePrivateFalseButton()
-            privateFalseButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-            privateFalseButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
-            cell.edgeStackView.addArrangedSubview(privateFalseButton)
-        }
-        
         
         //isSharedProjectButton------------------------------------------------------------
         if tikkleListManager[indexPath.row].isSharedProject {

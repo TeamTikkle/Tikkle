@@ -10,6 +10,7 @@
 		189FEDAF2A8E845400AF47B0 /* StampButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189FEDAE2A8E845400AF47B0 /* StampButton.swift */; };
 		189FEDB12A8E885200AF47B0 /* TikkleHorizontalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189FEDB02A8E885200AF47B0 /* TikkleHorizontalStackView.swift */; };
 		189FEDB32A8EAC1D00AF47B0 /* TikkleVerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189FEDB22A8EAC1D00AF47B0 /* TikkleVerticalStackView.swift */; };
+		18B409AB2AB70D2B003C3CDB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 18B409AA2AB70D2B003C3CDB /* SnapKit */; };
 		18C8C9022A8B6216008E4C92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9012A8B6216008E4C92 /* AppDelegate.swift */; };
 		18C8C9042A8B6216008E4C92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9032A8B6216008E4C92 /* SceneDelegate.swift */; };
 		18C8C9062A8B6216008E4C92 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9052A8B6216008E4C92 /* ViewController.swift */; };
@@ -89,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18B409AB2AB70D2B003C3CDB /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +268,9 @@
 			dependencies = (
 			);
 			name = Tikkle;
+			packageProductDependencies = (
+				18B409AA2AB70D2B003C3CDB /* SnapKit */,
+			);
 			productName = Tikkle;
 			productReference = 18C8C8FE2A8B6216008E4C92 /* Tikkle.app */;
 			productType = "com.apple.product-type.application";
@@ -294,6 +299,9 @@
 				Base,
 			);
 			mainGroup = 18C8C8F52A8B6216008E4C92;
+			packageReferences = (
+				18B409A92AB70D2B003C3CDB /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 18C8C8FF2A8B6216008E4C92 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -572,6 +580,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		18B409A92AB70D2B003C3CDB /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		18B409AA2AB70D2B003C3CDB /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 18B409A92AB70D2B003C3CDB /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 18C8C8F62A8B6216008E4C92 /* Project object */;
 }

@@ -12,7 +12,6 @@ class TikkleSheet {
     var image: UIImage?
     var title: String
     var description: String
-    var isPrivate: Bool
     var isSharedProject: Bool
     var stampList: [Tikkle]
     var createDate: Date = Date()
@@ -21,12 +20,11 @@ class TikkleSheet {
         return stampList.filter{ $0.isCompletion }.count == stampList.count
     }
     //전체에서 완료될걸 뺴라
-    init(image: UIImage? = nil, title: String, description: String, isPrivate: Bool, isSharedProject: Bool, stampList: [Tikkle]) {
+    init(image: UIImage? = nil, title: String, description: String, isSharedProject: Bool, stampList: [Tikkle]) {
         self.image = image
         self.title = title
         self.description = description
         self.stampList = stampList
-        self.isPrivate = isPrivate
         self.isSharedProject = isSharedProject
     }
 }

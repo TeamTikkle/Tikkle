@@ -13,7 +13,7 @@ protocol ViewControllerPushDelegate: AnyObject {
 
 class FeedPageViewController: UIViewController {
     private var combinedList: [TikkleSheet] {
-        return tikkleListManager.publicTikkleList() + DummyList.dummylist //✅합치고
+        return tikkleListManager.getTikkleList() + DummyList.dummylist //✅합치고
     }
     
     @IBOutlet weak var feedCollectionView: UICollectionView!

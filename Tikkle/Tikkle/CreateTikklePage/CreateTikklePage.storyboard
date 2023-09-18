@@ -110,14 +110,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="f1v-XW-VEO"/>
-                    <connections>
-                        <outlet property="challengeNameTextField" destination="fBc-29-8nN" id="uGh-KB-iNY"/>
-                        <outlet property="createScrollView" destination="amc-4H-JET" id="SmL-c8-ej5"/>
-                        <outlet property="infoTextView" destination="yHd-nJ-3bi" id="cXT-kq-xGy"/>
-                        <outlet property="photoImageView" destination="MGm-ln-Lte" id="xRd-F0-y6e"/>
-                        <outlet property="publicStackView" destination="fON-NS-lCr" id="z7G-IH-3Ar"/>
-                        <outlet property="tikkleNameLable" destination="7eW-WN-2JJ" id="4fU-JT-Nri"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n7p-fA-3Mu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

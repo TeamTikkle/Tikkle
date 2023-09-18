@@ -14,7 +14,7 @@ struct DataList {
 }
 
 
-let beer: TikkleSheet = TikkleSheet(image: UIImage(named: "beer"), title: "편의점 해외맥주 도장깨기", description: "편의점의 해외 맥주를 마셔보아요!", isPrivate: true, isSharedProject: true, stampList:  [
+let beer: TikkleSheet = TikkleSheet(image: UIImage(named: "beer"), title: "편의점 해외맥주 도장깨기", description: "편의점의 해외 맥주를 마셔보아요!", isSharedProject: true, stampList:  [
     Tikkle(title: "하이네켄", isCompletion: false),
     Tikkle(title: "버드와이저", isCompletion: false),
     Tikkle(title: "호가든로제", isCompletion: false),
@@ -31,7 +31,7 @@ let beer: TikkleSheet = TikkleSheet(image: UIImage(named: "beer"), title: "편�
 ])
 
  
-let tripInKoreaTikkle: TikkleSheet = TikkleSheet(image: UIImage(named: "travel"), title: "꼭 가봐야 할 국내여행지", description: "국내 여행지를 돌아다녀 보아요!", isPrivate: true, isSharedProject: false, stampList: [
+let tripInKoreaTikkle: TikkleSheet = TikkleSheet(image: UIImage(named: "travel"), title: "꼭 가봐야 할 국내여행지", description: "국내 여행지를 돌아다녀 보아요!", isSharedProject: false, stampList: [
     Tikkle(title: "제주도", isCompletion: false),
     Tikkle(title: "강릉", isCompletion: false),
     Tikkle(title: "서울", isCompletion: false),
@@ -47,7 +47,7 @@ let tripInKoreaTikkle: TikkleSheet = TikkleSheet(image: UIImage(named: "travel")
 ])
 
 
-let climbingTikkle = TikkleSheet(image: UIImage(named: "mountain"), title: "우리나라 등산코스 30곳 가보기", description: "국내에 여러 산들을 등산해보아요!", isPrivate: true, isSharedProject: false, stampList: [
+let climbingTikkle = TikkleSheet(image: UIImage(named: "mountain"), title: "우리나라 등산코스 30곳 가보기", description: "국내에 여러 산들을 등산해보아요!", isSharedProject: false, stampList: [
     Tikkle(title: "지리산", isCompletion: false),
     Tikkle(title: "금강산", isCompletion: false),
     Tikkle(title: "계방산", isCompletion: false),
@@ -67,7 +67,7 @@ let climbingTikkle = TikkleSheet(image: UIImage(named: "mountain"), title: "우�
 ])
 
 
-let tripOverseasTikkle: TikkleSheet = TikkleSheet(image: UIImage(named: "plane"), title: "해외여행지 도장깨기", description: "해외 여행지를 돌아다녀 보아요!", isPrivate: true, isSharedProject: false, stampList: [
+let tripOverseasTikkle: TikkleSheet = TikkleSheet(image: UIImage(named: "plane"), title: "해외여행지 도장깨기", description: "해외 여행지를 돌아다녀 보아요!", isSharedProject: false, stampList: [
     Tikkle(title: "일본", isCompletion: false),
     Tikkle(title: "중국", isCompletion: false),
     Tikkle(title: "미국", isCompletion: false),
@@ -103,7 +103,7 @@ struct DummyList {
     static var dummylist: [TikkleSheet] = [coding,morning]
 }
 
-let coding: TikkleSheet = TikkleSheet(image: UIImage(named: "coding"), title: "8월 한달동안 1일 1커밋하기", description: "하루에 한번 의미있는 커밋을 하겠다!", isPrivate: false, isSharedProject: true, stampList:  [
+let coding: TikkleSheet = TikkleSheet(image: UIImage(named: "coding"), title: "8월 한달동안 1일 1커밋하기", description: "하루에 한번 의미있는 커밋을 하겠다!", isSharedProject: true, stampList:  [
 
 
     Tikkle(title: "1일", isCompletion: true),
@@ -140,7 +140,7 @@ let coding: TikkleSheet = TikkleSheet(image: UIImage(named: "coding"), title: "8
 
 ])
 
-let coding2: TikkleSheet = TikkleSheet(image: UIImage(named: "coding"), title: "1일 1 커밋하기2222", description: "하루에 한번씩 커밋해보아요", isPrivate: false, isSharedProject: true, stampList:  [
+let coding2: TikkleSheet = TikkleSheet(image: UIImage(named: "coding"), title: "1일 1 커밋하기2222", description: "하루에 한번씩 커밋해보아요", isSharedProject: true, stampList:  [
     Tikkle(title: "1일", isCompletion: false),
     Tikkle(title: "2일", isCompletion: false),
     Tikkle(title: "3일", isCompletion: false),
@@ -148,7 +148,7 @@ let coding2: TikkleSheet = TikkleSheet(image: UIImage(named: "coding"), title: "
     Tikkle(title: "5일", isCompletion: false)
 ])
 
-let morning: TikkleSheet = TikkleSheet(image: UIImage(named: "morning"), title: "30일간 미라클 모닝 도전", description: "매일 6시 기상\n독서와 운동 꾸준히 해보기", isPrivate: false, isSharedProject: true, stampList:  [
+let morning: TikkleSheet = TikkleSheet(image: UIImage(named: "morning"), title: "30일간 미라클 모닝 도전", description: "매일 6시 기상\n독서와 운동 꾸준히 해보기", isSharedProject: true, stampList:  [
     Tikkle(title: "1일", isCompletion: true),
     Tikkle(title: "2일", isCompletion: true),
     Tikkle(title: "3일", isCompletion: true),

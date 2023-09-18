@@ -14,7 +14,7 @@ class CarouselLayout: UICollectionViewFlowLayout {
     public var spacing: CGFloat = 0
 
     // Cell끼리 겹치는 간격 설정
-    public var overlapValue: CGFloat = 40
+    public var overlapValue: CGFloat = 60
     public var isPagingEnabled: Bool = false
 
     private var isSetup: Bool = false

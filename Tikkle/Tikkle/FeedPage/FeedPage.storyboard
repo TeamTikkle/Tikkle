@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eTF-TE-hiB">
-                                <rect key="frame" x="20" y="59" width="353" height="710"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Lm4-kT-eK6">
                                     <size key="itemSize" width="128" height="128"/>
@@ -29,7 +29,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="HorizontalCell" id="1o3-fK-u4T" customClass="HorizontalCollectionViewCell" customModule="Tikkle" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="130" width="353" height="300"/>
+                                        <rect key="frame" x="20" y="130" width="353" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iK0-eA-egi">
                                             <rect key="frame" x="0.0" y="0.0" width="353" height="300"/>
@@ -100,20 +100,20 @@
                                         <size key="customSize" width="353" height="300"/>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="" id="3oB-qx-8Wm">
-                                        <rect key="frame" x="112.66666666666667" y="440" width="128" height="128"/>
+                                        <rect key="frame" x="132.66666666666666" y="440" width="127.99999999999997" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="eey-LM-2Lw">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="HotTikkleReusableView" id="3MG-uo-Ror" customClass="RecommendCollectionReusableView" customModule="Tikkle" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="353" height="130"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="130"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="top" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="4KQ-Ey-y6M">
-                                            <rect key="frame" x="0.0" y="22" width="345" height="90"/>
+                                            <rect key="frame" x="0.0" y="22" width="385" height="90"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBs-2P-pQ8">
                                                     <rect key="frame" x="0.0" y="0.0" width="48.666666666666664" height="27.333333333333332"/>
@@ -124,7 +124,7 @@
                                                     </buttonConfiguration>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="kuK-of-QhF">
-                                                    <rect key="frame" x="0.0" y="30" width="345" height="60"/>
+                                                    <rect key="frame" x="0.0" y="30" width="385" height="60"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XeA-bl-dc7">
                                                             <rect key="frame" x="0.0" y="0.0" width="140.33333333333334" height="60"/>
@@ -136,7 +136,7 @@
                                                             <size key="shadowOffset" width="0.0" height="0.0"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="더보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qew-dd-IOv">
-                                                            <rect key="frame" x="311" y="44.333333333333329" width="34" height="15.666666666666664"/>
+                                                            <rect key="frame" x="351" y="44.333333333333329" width="34" height="15.666666666666664"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                             <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -165,9 +165,9 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eTF-TE-hiB" secondAttribute="trailing" constant="20" id="P7d-YI-S5g"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eTF-TE-hiB" secondAttribute="trailing" id="P7d-YI-S5g"/>
                             <constraint firstItem="eTF-TE-hiB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="TNq-Dt-q2n"/>
-                            <constraint firstItem="eTF-TE-hiB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="koz-pg-J8X"/>
+                            <constraint firstItem="eTF-TE-hiB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="koz-pg-J8X"/>
                             <constraint firstItem="eTF-TE-hiB" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="qHp-xy-u95"/>
                         </constraints>
                     </view>

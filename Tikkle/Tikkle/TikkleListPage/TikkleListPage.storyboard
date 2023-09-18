@@ -158,9 +158,6 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Button">
                                     <fontDescription key="titleFontDescription" type="system" weight="heavy" pointSize="0.0"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <segue destination="nap-jP-2qa" kind="show" id="L8U-aW-0gH"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -199,16 +196,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="719.84732824427476" y="-125.35211267605635"/>
-        </scene>
-        <!--CreateTikklePage-->
-        <scene sceneID="Xn5-PW-ipY">
-            <objects>
-                <viewControllerPlaceholder storyboardName="CreateTikklePage" id="nap-jP-2qa" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="ohx-PR-Rtm"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="o2U-I4-fLq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1301" y="-303"/>
         </scene>
     </scenes>
     <resources>

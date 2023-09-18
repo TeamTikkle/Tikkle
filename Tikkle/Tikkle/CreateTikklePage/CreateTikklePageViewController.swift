@@ -6,49 +6,136 @@
 //
 
 import UIKit
+import SnapKit
 
 class CreateTikklePageViewController: UIViewController {
     
-    @IBOutlet weak var createScrollView: UIScrollView!
-    @IBOutlet weak var photoImageView: UIImageView!
-    
-    @IBOutlet weak var publicStackView: UIStackView!
-    private var openButton: UIButton = CustomButton.makePrivateTrueGrayButton()
-    private var privateButton: UIButton = CustomButton.makePrivateFalseGrayButton()
-    
-    @IBOutlet weak var challengeNameTextField: UITextField!
-    @IBOutlet weak var infoTextView: UITextView!
-    
-    @IBOutlet weak var tikkleNameLable: UILabel!
+    private var mainScrollView: UIScrollView = UIScrollView()
+    private var photoImageView: UIImageView = UIImageView(image: UIImage(named: "addPhoto"))
+    private let challengeNameLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 17, weight: .bold)
+        label.text = "도전명"
+        label.textColor = .white
+        return label
+    }()
+    private var challengeNameTextField: UITextField = {
+        let textField = UITextField()
+        textField.textColor = .white
+        textField.font = .systemFont(ofSize: 14)
+        return textField
+    }()
+    private let infoLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 17, weight: .bold)
+        label.text = "설명"
+        label.textColor = .white
+        return label
+    }()
+    private var infoTextView: UITextView = {
+        let textView = UITextView()
+        textView.font = .systemFont(ofSize: 17, weight: .bold)
+        textView.textColor = .white
+        textView.backgroundColor = .darkGray
+        return textView
+    }()
+    private var tikkleNameLable: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 17, weight: .bold)
+        label.text = "티끌명"
+        label.textColor = .white
+        return label
+    }()
     private var tikkleVerticalStack: TikkleVerticalStackView = {
         let stackView = TikkleVerticalStackView()
         stackView.axis = .vertical
         stackView.alignment = .leading
         stackView.distribution = .equalSpacing
         stackView.spacing = 18
-        stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         return stackView
     }()
-    let tikkleListManager: TikkleListManager = TikkleListManager()
+    private let tikkleListManager: TikkleListManager = TikkleListManager()
+    private let mainViewMargin: CGFloat = 20
+    private let contentSectionPadding: CGFloat = 40
+    private let contentPadding: CGFloat = 20
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        keyboardNotification()
-        navigationBarButton()
-        photoTapSetting()
-        buttonStyle()
-        challengeNameTextFieldStyle()
-        infoTextView.delegate = self
-        infoTextViewStyle()
-        initStackView()
+        setup()
     }
     
+}
+
+//MARK: 기본 UI Setting
+private extension CreateTikklePageViewController {
     
+    func setup() {
+        addViews()
+        autoLayoutSetup()
+        keyboardNotificationSetup()
+        navigationBarButtonSetup()
+        photoTapSetup()
+        challengeNameTextFieldSetup()
+        infoTextViewSetup()
+        stackViewSetup()
+    }
+    
+    func addViews() {
+        view.addSubview(mainScrollView)
+        mainScrollView.addSubview(photoImageView)
+        mainScrollView.addSubview(challengeNameLabel)
+        mainScrollView.addSubview(challengeNameTextField)
+        mainScrollView.addSubview(infoLabel)
+        mainScrollView.addSubview(infoTextView)
+        mainScrollView.addSubview(tikkleNameLable)
+        mainScrollView.addSubview(tikkleVerticalStack)
+    }
+    
+    func autoLayoutSetup() {
+        let contentLayout = mainScrollView.contentLayoutGuide
+        let frameLayout = mainScrollView.frameLayoutGuide
+        mainScrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(mainViewMargin)
+        }
+        photoImageView.snp.makeConstraints { make in
+            make.height.width.equalTo(142)
+            make.top.equalTo(contentLayout.snp.top).inset(contentPadding)
+            make.leading.equalTo(contentLayout.snp.leading).inset(contentPadding)
+        }
+        challengeNameLabel.snp.makeConstraints { make in
+            make.top.equalTo(photoImageView.snp.bottom).inset(-contentSectionPadding)
+            make.leading.equalTo(contentLayout.snp.leading)
+        }
+        challengeNameTextField.snp.makeConstraints { make in
+            make.top.equalTo(challengeNameLabel.snp.bottom).inset(-contentPadding)
+            make.leading.trailing.equalToSuperview()
+        }
+        infoLabel.snp.makeConstraints { make in
+            make.top.equalTo(challengeNameTextField.snp.bottom).inset(-contentSectionPadding)
+            make.leading.equalToSuperview()
+        }
+        infoTextView.snp.makeConstraints { make in
+            make.top.equalTo(infoLabel.snp.bottom).inset(-contentPadding)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(100)
+        }
+        tikkleNameLable.snp.makeConstraints { make in
+            make.top.equalTo(infoTextView.snp.bottom).inset(-contentSectionPadding)
+            make.leading.equalToSuperview()
+        }
+        tikkleVerticalStack.snp.makeConstraints { make in
+            make.top.equalTo(tikkleNameLable.snp.bottom).inset(-contentSectionPadding)
+            make.leading.equalTo(mainScrollView.contentLayoutGuide.snp.leading)
+            make.bottom.equalTo(mainScrollView.contentLayoutGuide.snp.bottom)
+            make.width.equalTo(mainScrollView.frameLayoutGuide.snp.width).inset(-40)
+        }
+        
+    }
     
     // 키보드가 올라가거나 내려갈때 실행 시킬 함수를 등록해주는 함수
-    private func keyboardNotification() {
+    func keyboardNotificationSetup() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardUp), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDown), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -71,77 +158,8 @@ class CreateTikklePageViewController: UIViewController {
         self.view.transform = .identity
     }
     
-    //MARK: 공개 비공개 버튼 클릭 이벤트 생성
-    func buttonStyle() {
-        openButton.backgroundColor = .mainColor
-        openButton.addTarget(self, action: #selector(openButtonClick), for: .touchUpInside)
-        privateButton.addTarget(self, action: #selector(privateButtonCilck), for: .touchUpInside)
-        
-        openButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        openButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
-        privateButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        privateButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
-        publicStackView.addArrangedSubview(openButton)
-        publicStackView.addArrangedSubview(privateButton)
-    }
-    
-    //MARK: - challengeNameTextField 커스텀
-    func challengeNameTextFieldStyle() {
-        challengeNameTextField.attributedPlaceholder = NSAttributedString(string: "20자 이내로 입력해주세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexCode: "ADADAD")])
-        
-        challengeNameTextField.borderStyle = .none
-        let border = CALayer()
-        challengeNameTextField.layoutIfNeeded()
-        border.frame = CGRect(x: 0, y: challengeNameTextField.frame.size.height, width: createScrollView.frame.width - 40, height: 1)
-        border.backgroundColor = UIColor.white.cgColor
-        challengeNameTextField.layer.addSublayer((border))
-    }
-    
-    //MARK: - infoTextView 처음 보여지는 화면에서의 안내문구
-    func infoTextViewStyle() {
-        infoTextView.text = "40자 이내로 입력해주세요."
-        infoTextView.textColor = UIColor(hexCode: "ADADAD")
-    }
-    
-    //MARK: - infoTextView 바깥을 클릭하면 편집 종료
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.infoTextView.resignFirstResponder()
-    }
-    
-    //MARK: 이미지뷰에 클릭 이벤트 적용시키는 함수
-    private func photoTapSetting() {
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(photoSelect))
-        photoImageView.addGestureRecognizer(gesture)
-        photoImageView.isUserInteractionEnabled = true
-    }
-    
-    //MARK: 이미지뷰 클릭시 ImagePickerController를 불러오는 함수
-    @objc func photoSelect() {
-        let imagePickerController: UIImagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-        imagePickerController.sourceType = .photoLibrary
-        present(imagePickerController, animated: true)
-    }
-    
-    //MARK: 공개버튼 클릭시 공개버튼의 isSelected 와 비공개 버튼의 isSelected, 배경색 변경
-    @objc func openButtonClick(_ sender: Any) {
-        openButton.backgroundColor = .mainColor
-        privateButton.backgroundColor = .subTitleColor
-        openButton.isSelected = true
-        privateButton.isSelected = false
-    }
-    //MARK: 비공개버튼 클릭시 공개버튼의 isSelected 와 비공개 버튼의 isSelected, 배경색 변경
-    @objc func privateButtonCilck(_ sender: Any) {
-        openButton.backgroundColor = .subTitleColor
-        privateButton.backgroundColor = .mainColor
-        openButton.isSelected = false
-        privateButton.isSelected = true
-    }
-    
     //MARK: Navigation에 완료 버튼 생성
-    private func navigationBarButton() {
+    private func navigationBarButtonSetup() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(saveTikkle))
     }
     
@@ -157,33 +175,53 @@ class CreateTikklePageViewController: UIViewController {
         
         
         let image = getImage()
-        let isPrivate = privateButton.isSelected
         
-        let tikkle = TikkleSheet(image: image,title: challengeNameText, description: infoText, isPrivate: isPrivate, isSharedProject: false, stampList: stampList)
+        let tikkle = TikkleSheet(image: image,title: challengeNameText, description: infoText, isSharedProject: false, stampList: stampList)
         tikkleListManager.addTikkle(tikkle)
         navigationController?.popViewController(animated: true)
     }
     
-    //MARK: 수직 스택뷰에 기본 설정 함수
-    //수직 스택뷰 오토레이아웃 설정, 수평 스택뷰를 추가하고 그 안에 스탬프 버튼, +버튼 하나씩 추가
-    private func initStackView() {
-        createScrollView.addSubview(tikkleVerticalStack)
-        
-        tikkleVerticalStack.translatesAutoresizingMaskIntoConstraints = false
-        tikkleVerticalStack.topAnchor.constraint(equalTo: tikkleNameLable.bottomAnchor, constant: 10).isActive = true
-        tikkleVerticalStack.leadingAnchor.constraint(equalTo: createScrollView.contentLayoutGuide.leadingAnchor, constant: 20).isActive = true
-        tikkleVerticalStack.trailingAnchor.constraint(equalTo: createScrollView.contentLayoutGuide.trailingAnchor, constant: -20).isActive = true
-        tikkleVerticalStack.bottomAnchor.constraint(equalTo: createScrollView.contentLayoutGuide.bottomAnchor, constant: -10).isActive = true
-        tikkleVerticalStack.widthAnchor.constraint(equalTo: createScrollView.frameLayoutGuide.widthAnchor, constant: -40).isActive = true
-        
-        let horizontalStackView = createStackView()
-        tikkleVerticalStack.addArrangedSubview(horizontalStackView)
-        horizontalStackView.addArrangedSubview(createStampButton())
-        horizontalStackView.addArrangedSubview(createAddButton())
+    //MARK: 이미지뷰에 클릭 이벤트 적용시키는 함수
+    func photoTapSetup() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(photoSelect))
+        photoImageView.addGestureRecognizer(gesture)
+        photoImageView.isUserInteractionEnabled = true
     }
     
+    //MARK: 이미지뷰 클릭시 ImagePickerController를 불러오는 함수
+    @objc func photoSelect() {
+        //lazy var 사용해보기
+        let imagePickerController: UIImagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true)
+    }
     
-    private func getImage() -> UIImage? {
+    //MARK: - challengeNameTextField 커스텀
+    func challengeNameTextFieldSetup() {
+        challengeNameTextField.attributedPlaceholder = NSAttributedString(string: "20자 이내로 입력해주세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexCode: "ADADAD")])
+        
+        challengeNameTextField.borderStyle = .none
+        let border = CALayer()
+        challengeNameTextField.layoutIfNeeded()
+        border.frame = CGRect(x: 0, y: challengeNameTextField.frame.size.height, width: mainScrollView.frame.width - 40, height: 1)
+        border.backgroundColor = UIColor.white.cgColor
+        challengeNameTextField.layer.addSublayer((border))
+    }
+    
+    //MARK: - infoTextView 처음 보여지는 화면에서의 안내문구
+    func infoTextViewSetup() {
+        infoTextView.text = "40자 이내로 입력해주세요."
+        infoTextView.textColor = UIColor(hexCode: "ADADAD")
+        infoTextView.delegate = self
+    }
+    
+    //MARK: - infoTextView 바깥을 클릭하면 편집 종료
+    internal override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.infoTextView.resignFirstResponder()
+    }
+    
+    func getImage() -> UIImage? {
         if photoImageView.image?.pngData() == UIImage(named: "addphoto")?.pngData() {
             let defaultImage = UIImage(named: "default")
             return defaultImage
@@ -193,7 +231,7 @@ class CreateTikklePageViewController: UIViewController {
     }
     
     //MARK: 스탬프를 한줄에 3개를 넣어줄 수평 스택뷰 생성 함수
-    private func createStackView() -> TikkleHorizontalStackView {
+    func createStackView() -> TikkleHorizontalStackView {
         let horizontalStackView = TikkleHorizontalStackView()
         horizontalStackView.axis = .horizontal
         horizontalStackView.alignment = .center
@@ -203,7 +241,7 @@ class CreateTikklePageViewController: UIViewController {
     }
     
     // MARK: 스탬프버튼 생성 함수
-    private func createStampButton() -> StampButton {
+    func createStampButton() -> StampButton {
         let stampButton = StampButton()
         stampButton.isEditeEnabled = true
         stampButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
@@ -212,7 +250,7 @@ class CreateTikklePageViewController: UIViewController {
     }
     
     // MARK: +버튼 생성 함수
-    private func createAddButton() -> UIButton {
+    func createAddButton() -> UIButton {
         let button = UIButton()
         button.backgroundColor = .black.withAlphaComponent(0.4)
         button.setImage(UIImage(systemName: "plus"), for: .normal)
@@ -248,11 +286,11 @@ class CreateTikklePageViewController: UIViewController {
             // 5. 수직 스택뷰에 새로운 수평 스택뷰를 넣어준다,
             tikkleVerticalStack.addArrangedSubview(newHorizontalStackView)
             //6. 현재 스크롤의 위치를 가져온다.
-            var contentOffset = createScrollView.contentOffset
+            var contentOffset = mainScrollView.contentOffset
             //7. 현재 스크롤 위치에서 120(스택뷰의 크기)만큼 밑으로 설정해준다.
             contentOffset.y += 120
             //8. 120만큼 밑으로 내린 값을 애니메이션과 함께 적용하기
-            createScrollView.setContentOffset(contentOffset, animated: true)
+            mainScrollView.setContentOffset(contentOffset, animated: true)
         } else {
             // + 버튼을 지우고
             // 새로운 스탬프버튼 생성하고 스택뷰에 추가
@@ -262,6 +300,16 @@ class CreateTikklePageViewController: UIViewController {
             horizontalStackView.addArrangedSubview(createStampButton())
             horizontalStackView.addArrangedSubview(createAddButton())
         }
+    }
+    
+    //MARK: 수직 스택뷰에 기본 설정 함수
+    //수직 스택뷰 오토레이아웃 설정, 수평 스택뷰를 추가하고 그 안에 스탬프 버튼, +버튼 하나씩 추가
+    func stackViewSetup() {
+        
+        let horizontalStackView = createStackView()
+        tikkleVerticalStack.addArrangedSubview(horizontalStackView)
+        horizontalStackView.addArrangedSubview(createStampButton())
+        horizontalStackView.addArrangedSubview(createAddButton())
     }
     
 }
