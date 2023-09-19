@@ -31,6 +31,7 @@ class TikkleListViewController: UIViewController {
     
     let countLabel: UILabel = {
         let label = UILabel()
+        label.text = "3개"
         label.font = UIFont.systemFont(ofSize: 18)
         label.textColor = .subTitleColor
         return label
@@ -52,7 +53,8 @@ class TikkleListViewController: UIViewController {
         // 버튼 배경색 설정
         button.backgroundColor = UIColor.white.withAlphaComponent(0.05)
         
- 
+  
+        
         return button
     }()
     
@@ -73,10 +75,6 @@ class TikkleListViewController: UIViewController {
         return button
     }()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        tableView.reloadData()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,7 +86,7 @@ class TikkleListViewController: UIViewController {
     }
     
     @objc func createTikkleButtonClick() {
-        let vc = CreateTikkleViewController()
+        let vc = CreateTikklePageViewController()
         vc.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -228,12 +226,12 @@ class TikkleListViewController: UIViewController {
 extension TikkleListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tikkleListManager.getTikkleList().count
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TikkleListCell", for: indexPath) as! TikkleListTableViewCell
-        cell.titleLabel.text = tikkleListManager[indexPath.row].title.description
+        
         
         return cell
     }

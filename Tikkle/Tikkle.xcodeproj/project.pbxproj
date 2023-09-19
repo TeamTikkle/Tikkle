@@ -17,7 +17,6 @@
 		18C8C9042A8B6216008E4C92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9032A8B6216008E4C92 /* SceneDelegate.swift */; };
 		18C8C90B2A8B6219008E4C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18C8C90A2A8B6219008E4C92 /* Assets.xcassets */; };
 		18C8C90E2A8B6219008E4C92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C8C90C2A8B6219008E4C92 /* LaunchScreen.storyboard */; };
-		18C8C91C2A8B6331008E4C92 /* TikkleListPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C8C91B2A8B6331008E4C92 /* TikkleListPage.storyboard */; };
 		18C8C91E2A8B6359008E4C92 /* TikkleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C91D2A8B6359008E4C92 /* TikkleListViewController.swift */; };
 		18C8C9202A8B6367008E4C92 /* TikklePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C8C91F2A8B6367008E4C92 /* TikklePage.storyboard */; };
 		18C8C9222A8B6371008E4C92 /* TikkleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9212A8B6371008E4C92 /* TikkleViewController.swift */; };
@@ -54,7 +53,6 @@
 		18C8C90A2A8B6219008E4C92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18C8C90D2A8B6219008E4C92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18C8C90F2A8B6219008E4C92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		18C8C91B2A8B6331008E4C92 /* TikkleListPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TikkleListPage.storyboard; sourceTree = "<group>"; };
 		18C8C91D2A8B6359008E4C92 /* TikkleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleListViewController.swift; sourceTree = "<group>"; };
 		18C8C91F2A8B6367008E4C92 /* TikklePage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TikklePage.storyboard; sourceTree = "<group>"; };
 		18C8C9212A8B6371008E4C92 /* TikkleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleViewController.swift; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 		18C8C9162A8B624F008E4C92 /* TikkleList */ = {
 			isa = PBXGroup;
 			children = (
-				18C8C91B2A8B6331008E4C92 /* TikkleListPage.storyboard */,
 				18C8C91D2A8B6359008E4C92 /* TikkleListViewController.swift */,
 				D87784342A8C7151002B26F9 /* TikkleListTableViewCell.swift */,
 			);
@@ -308,7 +305,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				18C8C90E2A8B6219008E4C92 /* LaunchScreen.storyboard in Resources */,
-				18C8C91C2A8B6331008E4C92 /* TikkleListPage.storyboard in Resources */,
 				18C8C90B2A8B6219008E4C92 /* Assets.xcassets in Resources */,
 				18C8C9202A8B6367008E4C92 /* TikklePage.storyboard in Resources */,
 				18C8C9282A8B63BD008E4C92 /* MyPage.storyboard in Resources */,
