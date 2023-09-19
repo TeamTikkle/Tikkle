@@ -8,7 +8,7 @@
 import UIKit
 //
 
-class TikkleListPageViewController: UIViewController {
+class TikkleListViewController: UIViewController {
     
     let margin: CGFloat = 16
     
@@ -121,17 +121,17 @@ class TikkleListPageViewController: UIViewController {
     }
     
     @objc func createTikkleButtonClick() {
-        let vc = CreateTikklePageViewController()
+        let vc = CreateTikkleViewController()
         vc.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(vc, animated: true)
     }
 }
 
 //MARK: -테이블 뷰 행을 탭할 때 실행
-extension TikkleListPageViewController: UITableViewDelegate {
+extension TikkleListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "TikklePage", bundle: nil)
-        guard let vc = storyboard.instantiateViewController(withIdentifier: "TikklePageViewController") as? TikklePageViewController else { return }
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "TikklePageViewController") as? TikkleViewController else { return }
         vc.tikkle = tikkleListManager[indexPath.item]
         
         
@@ -149,7 +149,7 @@ extension TikkleListPageViewController: UITableViewDelegate {
 
 
 //MARK: -테이블 뷰 사용시 필수 구현해야 하는 메소드
-extension TikkleListPageViewController: UITableViewDataSource {
+extension TikkleListViewController: UITableViewDataSource {
     //TikkleListPage 테이블뷰 셀 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         

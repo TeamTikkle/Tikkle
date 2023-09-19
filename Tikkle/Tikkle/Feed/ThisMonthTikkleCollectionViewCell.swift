@@ -7,8 +7,8 @@
 
 import UIKit
 
-class RecommendCollectionViewCell: UICollectionViewCell {
-    static let identifier: String = "\(RecommendCollectionViewCell.self)"
+class ThisMonthTikkleCollectionViewCell: UICollectionViewCell {
+    static let identifier: String = "\(ThisMonthTikkleCollectionViewCell.self)"
     private let backgroundImageView: UIImageView = UIImageView(image: UIImage(named: "TikkleON"))
     private lazy var stackView: UIStackView = {
         let st = UIStackView(arrangedSubviews: [titleLabel,challengeCountLabel])

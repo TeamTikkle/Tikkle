@@ -12,7 +12,7 @@ class HorizontalCollectionViewCell: UICollectionViewCell {
     static let identifier: String = "\(HorizontalCollectionViewCell.self)"
     private let recommendCollectionView: UICollectionView = {
         let flow = CarouselLayout()
-        flow.itemSize = CGSize(width: 280.0, height: 260.0)
+        flow.itemSize = CGSize(width: 280.0, height: 444.0)
         let cv = UICollectionView(frame: .zero, collectionViewLayout: flow)
         cv.backgroundColor = .clear
         return cv
@@ -26,14 +26,14 @@ class HorizontalCollectionViewCell: UICollectionViewCell {
         
         recommendCollectionView.delegate = self
         recommendCollectionView.dataSource = self
-        recommendCollectionView.register(RecommendCollectionViewCell.self, forCellWithReuseIdentifier: RecommendCollectionViewCell.identifier)
+        recommendCollectionView.register(ThisMonthTikkleCollectionViewCell.self, forCellWithReuseIdentifier: ThisMonthTikkleCollectionViewCell.identifier)
         
         recommendCollectionView.translatesAutoresizingMaskIntoConstraints = false
         recommendCollectionView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         recommendCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         recommendCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         recommendCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        recommendCollectionView.heightAnchor.constraint(equalToConstant: 258).isActive = true
+        recommendCollectionView.heightAnchor.constraint(equalToConstant: 444).isActive = true
     }
     
     required init?(coder: NSCoder) {
@@ -48,7 +48,7 @@ extension HorizontalCollectionViewCell: UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendCollectionViewCell.identifier, for: indexPath) as? RecommendCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThisMonthTikkleCollectionViewCell.identifier, for: indexPath) as? ThisMonthTikkleCollectionViewCell else { return UICollectionViewCell() }
         cell.layer.borderWidth = 0.5
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.cornerRadius = 10

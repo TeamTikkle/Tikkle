@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TikklePageViewController: UIViewController {
+class TikkleViewController: UIViewController {
     
     var tikkle: TikkleSheet?
     var tikkleListManager: TikkleListManager = TikkleListManager()
@@ -20,6 +20,7 @@ class TikklePageViewController: UIViewController {
     @IBOutlet weak var TikklePageInfo: UILabel!
     @IBOutlet weak var challengeButton: UIButton!
     @IBOutlet weak var TikklePageCollectionView: UICollectionView!
+    private let tikklePageCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +28,8 @@ class TikklePageViewController: UIViewController {
         navigationSetting()
         uiSet()
         
-        TikklePageCollectionView.delegate = self
-        TikklePageCollectionView.dataSource = self
+        tikklePageCollectionView.delegate = self
+        tikklePageCollectionView.dataSource = self
     }
     
     //MARK: - TikklePage NavigationBar 커스텀
@@ -43,7 +44,7 @@ class TikklePageViewController: UIViewController {
         deleteImageview.contentMode = .scaleAspectFit
         
         //MARK: - TikklePage 포기하기 버튼 커스텀, 클릭 시 deleteAlert 함수 실행
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: deleteImage, style: .plain, target: self, action: #selector(TikklePageViewController.deleteAlert))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: deleteImage, style: .plain, target: self, action: #selector(TikkleViewController.deleteAlert))
     }
     
     //MARK: - 포기하기 버튼 동작
@@ -150,13 +151,13 @@ class TikklePageViewController: UIViewController {
 }
 
 //MARK: - TikklePage CollectionView Setting
-extension TikklePageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension TikkleViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tikkle?.stampList.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = TikklePageCollectionView.dequeueReusableCell(withReuseIdentifier: "TikklePageCollectionViewCell", for: indexPath) as! TikklePageCollectionViewCell
+        let cell = TikklePageCollectionView.dequeueReusableCell(withReuseIdentifier: "TikklePageCollectionViewCell", for: indexPath) as! TikkleCollectionViewCell
         
         cell.cellUISetting(tikkle: tikkle, index: indexPath.row)
         
@@ -171,7 +172,7 @@ extension TikklePageViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let tikkle,
-              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TikklePageCollectionViewCell", for: indexPath) as? TikklePageCollectionViewCell else { return }
+              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TikklePageCollectionViewCell", for: indexPath) as? TikkleCollectionViewCell else { return }
         if tikkleListManager.getTikkle(where: tikkle.id) == nil { return }
         let index = indexPath.row
         

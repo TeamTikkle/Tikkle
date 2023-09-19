@@ -12,7 +12,7 @@ class MainViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTabBar()
-        configureNavigationBar()
+        viewControllerSetting()
         // Do any additional setup after loading the view.
     }
     
@@ -21,26 +21,45 @@ class MainViewController: UITabBarController {
         let tabBarAppearance = UITabBarAppearance()
         tabBarAppearance.configureWithTransparentBackground()
         tabBar.standardAppearance = tabBarAppearance
+        self.tabBar.tintColor = .mainColor
+    }
+
+    private func viewControllerSetting() {
+        let vc1 = createNavigationController(viewController: TikkleViewController())
+        let vc2 = createNavigationController(viewController: FeedViewController())
+        let vc3 = createNavigationController(viewController: InfoViewController())
+
+        self.setViewControllers([vc1, vc2, vc3], animated: false)
+
+        guard let items = self.tabBar.items else { return }
+
+        let unSelectedImages = ["tabBarTikkleListPageUnselected", "tabBarFeedPageUnselected", "tabBarMyPageUnselected"]
+        let selectedImages = ["tabBarTikkleListPageSelected", "tabBarFeedPageSelected", "tabBarMyPageSelected"]
+
+        for index in 0..<items.count {
+            items[index].image = UIImage(named: unSelectedImages[index])
+        }
+        
+        // 선택된 아이템의 이미지와 색상 설정
+        if let items = self.tabBar.items {
+            for index in 0..<items.count {
+                items[index].selectedImage = UIImage(named: selectedImages[index])
+            }
+        }
     }
     
-    private func configureNavigationBar() {
-        guard let navigationBar = navigationController?.navigationBar else { return }
+    private func configureNavigationBar(navigationController: UINavigationController) -> UINavigationController {
+        let navigationBar = navigationController.navigationBar
         let naviBarAppearance = UINavigationBarAppearance()
         naviBarAppearance.configureWithTransparentBackground()
         navigationBar.standardAppearance = naviBarAppearance
         navigationBar.scrollEdgeAppearance = naviBarAppearance
         
-        let logoImage = UIImage(named: "navi_Logo")
-        let logoImageView = UIImageView(image: logoImage)
-        logoImageView.contentMode = .scaleAspectFit
-        let logoItem = UIBarButtonItem(customView: logoImageView)
-        navigationItem.leftBarButtonItem = logoItem
-        
-        let bellImage = UIImage(named: "navi_Bell")
-        let bellImageView = UIImageView(image: bellImage)
-        bellImageView.contentMode = .scaleAspectFit
-        let bellItem = UIBarButtonItem(customView: bellImageView)
-        navigationItem.rightBarButtonItem = bellItem
+        return navigationController
     }
-
+    
+    private func createNavigationController(viewController: UIViewController) -> UIViewController {
+        let navigationController = UINavigationController(rootViewController: viewController)
+        return configureNavigationBar(navigationController: navigationController)
+    }
 }

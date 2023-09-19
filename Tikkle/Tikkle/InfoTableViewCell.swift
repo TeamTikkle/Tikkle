@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MypageTableViewCell: UITableViewCell {
+class InfoTableViewCell: UITableViewCell {
     
     @IBOutlet weak var mypageMenuImg: UIImageView!
     @IBOutlet weak var mypageMenuLabel: UILabel!

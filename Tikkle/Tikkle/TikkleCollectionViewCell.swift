@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TikklePageCollectionViewCell: UICollectionViewCell {
+class TikkleCollectionViewCell: UICollectionViewCell {
     
     var tikkle: TikkleSheet?
     //MARK: -
