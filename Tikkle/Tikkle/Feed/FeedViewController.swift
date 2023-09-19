@@ -12,7 +12,7 @@ protocol ViewControllerPushDelegate: AnyObject {
     func pushViewController(tikkle: TikkleSheet)
 }
 
-class FeedPageViewController: UIViewController {
+class FeedViewController: UIViewController {
     private var combinedList: [TikkleSheet] {
         return tikkleListManager.getTikkleList() + DummyList.dummylist//✅합치고
     }
@@ -37,7 +37,7 @@ class FeedPageViewController: UIViewController {
     
 }
 
-private extension FeedPageViewController {
+private extension FeedViewController {
     func setup() {
         navigationSetup()
         addViews()
@@ -87,7 +87,7 @@ private extension FeedPageViewController {
 }
 
 //MARK: UICollectionView
-extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ViewControllerPushDelegate {
+extension FeedViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ViewControllerPushDelegate {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 20.0  // 줄 간의 최소 간격 설정
@@ -132,7 +132,7 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
         if indexPath.section == 1 {
 
             //뷰컨트롤러 인스턴스 생성
-            let vc = TikklePageViewController()
+            let vc = TikkleViewController()
             //데이터 할당. 여기서 합친 리스트를 줘.
             vc.tikkle = combinedList[indexPath.row]
             
@@ -172,7 +172,7 @@ extension FeedPageViewController: UICollectionViewDelegate, UICollectionViewData
     
     
     func pushViewController(tikkle: TikkleSheet) {
-        let vc = TikklePageViewController()
+        let vc = TikkleViewController()
         //MARK: - TikklePageViewController의 데이터를 어디로
         vc.tikkle = tikkle
         navigationController?.pushViewController(vc, animated: true)

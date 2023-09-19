@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class CreateTikklePageViewController: UIViewController {
+class CreateTikkleViewController: UIViewController {
     
     private var mainScrollView: UIScrollView = UIScrollView()
     private var photoImageView: UIImageView = UIImageView(image: UIImage(named: "addphoto"))
@@ -69,7 +69,7 @@ class CreateTikklePageViewController: UIViewController {
 }
 
 //MARK: 기본 UI Setting
-private extension CreateTikklePageViewController {
+private extension CreateTikkleViewController {
     
     func setup() {
         mainViewSetup()
@@ -321,7 +321,7 @@ private extension CreateTikklePageViewController {
 }
 
 //MARK: - challengeNameTextField 커스텀
-extension CreateTikklePageViewController: UITextViewDelegate {
+extension CreateTikkleViewController: UITextViewDelegate {
     //MARK: - infoTextView가 비어있다면 해당 문구를 출력해라
     func textViewDidEndEditing(_ textView: UITextView) {
         if infoTextView.text.isEmpty {
@@ -341,7 +341,7 @@ extension CreateTikklePageViewController: UITextViewDelegate {
 }
 
 
-extension CreateTikklePageViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+extension CreateTikkleViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let infoImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             photoImageView.image = infoImage

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyPageViewController: UIViewController {
+class InfoViewController: UIViewController {
     
     var tikkleSheet: TikkleSheet?
     var tikkleList: TikkleListManager = TikkleListManager()
@@ -87,13 +87,13 @@ class MyPageViewController: UIViewController {
 }
 
 //MARK: - MyPage TableView Setting
-extension MyPageViewController : UITableViewDelegate, UITableViewDataSource {
+extension InfoViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menu.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MypageTableViewCell", for: indexPath) as? MypageTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MypageTableViewCell", for: indexPath) as? InfoTableViewCell else {
             return UITableViewCell()
         }
         

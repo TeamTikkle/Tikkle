@@ -26,7 +26,7 @@ class HorizontalCollectionViewCell: UICollectionViewCell {
         
         recommendCollectionView.delegate = self
         recommendCollectionView.dataSource = self
-        recommendCollectionView.register(RecommendCollectionViewCell.self, forCellWithReuseIdentifier: RecommendCollectionViewCell.identifier)
+        recommendCollectionView.register(ThisMonthTikkleCollectionViewCell.self, forCellWithReuseIdentifier: ThisMonthTikkleCollectionViewCell.identifier)
         
         recommendCollectionView.translatesAutoresizingMaskIntoConstraints = false
         recommendCollectionView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
@@ -48,7 +48,7 @@ extension HorizontalCollectionViewCell: UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendCollectionViewCell.identifier, for: indexPath) as? RecommendCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThisMonthTikkleCollectionViewCell.identifier, for: indexPath) as? ThisMonthTikkleCollectionViewCell else { return UICollectionViewCell() }
         cell.layer.borderWidth = 0.5
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.cornerRadius = 10
