@@ -32,13 +32,9 @@ class TikkleListTableViewCell: UITableViewCell {
         label.font = UIFont.systemFont(ofSize: 22)
         label.textColor = .white
         
-        let attributedString = NSMutableAttributedString(string: "30일간 TIL 매일 작성하기")
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 10 // 행간 설정
         
-        attributedString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
-        
-        label.attributedText = attributedString
         
         return label
     }()
@@ -48,7 +44,6 @@ class TikkleListTableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 25)
         label.textColor = .white
-        label.text = "30%"
         return label
     }()
     
@@ -161,25 +156,3 @@ class TikkleListTableViewCell: UITableViewCell {
 
 
 
-//class TikkleListTableViewCell: UITableViewCell {
-//
-//    //MARK: -TikkleListPage TableViewCell 스토리보드 요소들 연결
-//    @IBOutlet weak var tikkleImage: UIImageView!
-//    @IBOutlet weak var titleLabel: UILabel!
-//    @IBOutlet weak var percentLabel: UILabel!
-//    @IBOutlet weak var graphImage: UIImageView!
-//
-//    @IBOutlet weak var edgeStackView: UIStackView!
-//
-//
-//
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//    }
-//
-//
-//
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//    }
-//}

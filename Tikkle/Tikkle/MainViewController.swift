@@ -25,7 +25,7 @@ class MainViewController: UITabBarController {
     }
 
     private func viewControllerSetting() {
-        let vc1 = createNavigationController(viewController: TikkleViewController())
+        let vc1 = createNavigationController(viewController: TikkleListViewController())
         let vc2 = createNavigationController(viewController: FeedViewController())
         let vc3 = createNavigationController(viewController: InfoViewController())
 
