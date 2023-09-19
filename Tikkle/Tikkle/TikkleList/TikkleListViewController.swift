@@ -86,7 +86,7 @@ class TikkleListViewController: UIViewController {
     }
     
     @objc func createTikkleButtonClick() {
-        let vc = CreateTikklePageViewController()
+        let vc = CreateTikkleViewController()
         vc.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(vc, animated: true)
     }

@@ -10,36 +10,33 @@
 		189FEDAF2A8E845400AF47B0 /* StampButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189FEDAE2A8E845400AF47B0 /* StampButton.swift */; };
 		189FEDB12A8E885200AF47B0 /* TikkleHorizontalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189FEDB02A8E885200AF47B0 /* TikkleHorizontalStackView.swift */; };
 		189FEDB32A8EAC1D00AF47B0 /* TikkleVerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189FEDB22A8EAC1D00AF47B0 /* TikkleVerticalStackView.swift */; };
+		18A765D62AB7F23C00F90285 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A765D52AB7F23C00F90285 /* Reusable.swift */; };
+		18A765D82AB7F34A00F90285 /* ThisMonthTikkleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A765D72AB7F34A00F90285 /* ThisMonthTikkleHeaderView.swift */; };
 		18B409AB2AB70D2B003C3CDB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 18B409AA2AB70D2B003C3CDB /* SnapKit */; };
 		18C8C9022A8B6216008E4C92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9012A8B6216008E4C92 /* AppDelegate.swift */; };
 		18C8C9042A8B6216008E4C92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9032A8B6216008E4C92 /* SceneDelegate.swift */; };
-		18C8C9062A8B6216008E4C92 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9052A8B6216008E4C92 /* ViewController.swift */; };
-		18C8C9092A8B6216008E4C92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C8C9072A8B6216008E4C92 /* Main.storyboard */; };
 		18C8C90B2A8B6219008E4C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18C8C90A2A8B6219008E4C92 /* Assets.xcassets */; };
 		18C8C90E2A8B6219008E4C92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C8C90C2A8B6219008E4C92 /* LaunchScreen.storyboard */; };
 		18C8C91C2A8B6331008E4C92 /* TikkleListPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C8C91B2A8B6331008E4C92 /* TikkleListPage.storyboard */; };
 		18C8C91E2A8B6359008E4C92 /* TikkleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C91D2A8B6359008E4C92 /* TikkleListViewController.swift */; };
 		18C8C9202A8B6367008E4C92 /* TikklePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C8C91F2A8B6367008E4C92 /* TikklePage.storyboard */; };
-		18C8C9222A8B6371008E4C92 /* TikklePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9212A8B6371008E4C92 /* TikklePageViewController.swift */; };
-		18C8C9242A8B6394008E4C92 /* CreateTikklePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C8C9232A8B6394008E4C92 /* CreateTikklePage.storyboard */; };
-		18C8C9262A8B63B1008E4C92 /* CreateTikklePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9252A8B63B1008E4C92 /* CreateTikklePageViewController.swift */; };
+		18C8C9222A8B6371008E4C92 /* TikkleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9212A8B6371008E4C92 /* TikkleViewController.swift */; };
+		18C8C9262A8B63B1008E4C92 /* CreateTikkleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9252A8B63B1008E4C92 /* CreateTikkleViewController.swift */; };
 		18C8C9282A8B63BD008E4C92 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C8C9272A8B63BD008E4C92 /* MyPage.storyboard */; };
-		18C8C92A2A8B63C6008E4C92 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9292A8B63C6008E4C92 /* MyPageViewController.swift */; };
-		18C8C92C2A8B63CD008E4C92 /* FeedPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C8C92B2A8B63CD008E4C92 /* FeedPage.storyboard */; };
-		18C8C92E2A8B63D9008E4C92 /* FeedPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C92D2A8B63D9008E4C92 /* FeedPageViewController.swift */; };
+		18C8C92A2A8B63C6008E4C92 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9292A8B63C6008E4C92 /* InfoViewController.swift */; };
+		18C8C92E2A8B63D9008E4C92 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C92D2A8B63D9008E4C92 /* FeedViewController.swift */; };
 		18C8C9322A8B6C08008E4C92 /* TikkleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9312A8B6C08008E4C92 /* TikkleSheet.swift */; };
 		18C8C9342A8B6C24008E4C92 /* Tikkle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9332A8B6C24008E4C92 /* Tikkle.swift */; };
 		18C8C9362A8B6C45008E4C92 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9352A8B6C45008E4C92 /* DummyData.swift */; };
 		18C8C93A2A8B6C81008E4C92 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9392A8B6C81008E4C92 /* UIColor.swift */; };
 		18CB6DE12A9375C30011388C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CB6DE02A9375C30011388C /* MainViewController.swift */; };
-		18FEC5C52A8C988300A804DD /* RecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FEC5C42A8C988300A804DD /* RecommendCollectionViewCell.swift */; };
-		18FEC5C72A8CA7C500A804DD /* RecommendCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FEC5C62A8CA7C500A804DD /* RecommendCollectionReusableView.swift */; };
+		18FEC5C52A8C988300A804DD /* ThisMonthTikkleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FEC5C42A8C988300A804DD /* ThisMonthTikkleCollectionViewCell.swift */; };
 		18FEC5C92A8CBADB00A804DD /* HorizontalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FEC5C82A8CBADB00A804DD /* HorizontalCollectionViewCell.swift */; };
 		18FEC5CD2A8CD48400A804DD /* CarouselLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FEC5CC2A8CD48400A804DD /* CarouselLayout.swift */; };
 		18FEC5CF2A8CDFA100A804DD /* OtherTikkleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FEC5CE2A8CDFA100A804DD /* OtherTikkleCollectionViewCell.swift */; };
 		18FEC5D12A8CFCF400A804DD /* OtherTikkleCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FEC5D02A8CFCF400A804DD /* OtherTikkleCollectionReusableView.swift */; };
-		B852504D2A8BB63200076DCB /* TikklePageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B852504C2A8BB63200076DCB /* TikklePageCollectionViewCell.swift */; };
-		B86DC4CC2A8CBD7900684E0D /* MypageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DC4CB2A8CBD7900684E0D /* MypageTableViewCell.swift */; };
+		B852504D2A8BB63200076DCB /* TikkleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B852504C2A8BB63200076DCB /* TikkleCollectionViewCell.swift */; };
+		B86DC4CC2A8CBD7900684E0D /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DC4CB2A8CBD7900684E0D /* InfoTableViewCell.swift */; };
 		D87784352A8C7151002B26F9 /* TikkleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87784342A8C7151002B26F9 /* TikkleListTableViewCell.swift */; };
 		D877843B2A8D10EC002B26F9 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D877843A2A8D10EC002B26F9 /* CustomButton.swift */; };
 		D89AD1982A8E8E28001B206A /* TikkleListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89AD1972A8E8E28001B206A /* TikkleListManager.swift */; };
@@ -49,37 +46,34 @@
 		189FEDAE2A8E845400AF47B0 /* StampButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampButton.swift; sourceTree = "<group>"; };
 		189FEDB02A8E885200AF47B0 /* TikkleHorizontalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleHorizontalStackView.swift; sourceTree = "<group>"; };
 		189FEDB22A8EAC1D00AF47B0 /* TikkleVerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleVerticalStackView.swift; sourceTree = "<group>"; };
+		18A765D52AB7F23C00F90285 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		18A765D72AB7F34A00F90285 /* ThisMonthTikkleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisMonthTikkleHeaderView.swift; sourceTree = "<group>"; };
 		18C8C8FE2A8B6216008E4C92 /* Tikkle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tikkle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C8C9012A8B6216008E4C92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18C8C9032A8B6216008E4C92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		18C8C9052A8B6216008E4C92 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		18C8C9082A8B6216008E4C92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18C8C90A2A8B6219008E4C92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18C8C90D2A8B6219008E4C92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18C8C90F2A8B6219008E4C92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18C8C91B2A8B6331008E4C92 /* TikkleListPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TikkleListPage.storyboard; sourceTree = "<group>"; };
 		18C8C91D2A8B6359008E4C92 /* TikkleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleListViewController.swift; sourceTree = "<group>"; };
 		18C8C91F2A8B6367008E4C92 /* TikklePage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TikklePage.storyboard; sourceTree = "<group>"; };
-		18C8C9212A8B6371008E4C92 /* TikklePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikklePageViewController.swift; sourceTree = "<group>"; };
-		18C8C9232A8B6394008E4C92 /* CreateTikklePage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateTikklePage.storyboard; sourceTree = "<group>"; };
-		18C8C9252A8B63B1008E4C92 /* CreateTikklePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTikklePageViewController.swift; sourceTree = "<group>"; };
+		18C8C9212A8B6371008E4C92 /* TikkleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleViewController.swift; sourceTree = "<group>"; };
+		18C8C9252A8B63B1008E4C92 /* CreateTikkleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTikkleViewController.swift; sourceTree = "<group>"; };
 		18C8C9272A8B63BD008E4C92 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
-		18C8C9292A8B63C6008E4C92 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
-		18C8C92B2A8B63CD008E4C92 /* FeedPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeedPage.storyboard; sourceTree = "<group>"; };
-		18C8C92D2A8B63D9008E4C92 /* FeedPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPageViewController.swift; sourceTree = "<group>"; };
+		18C8C9292A8B63C6008E4C92 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		18C8C92D2A8B63D9008E4C92 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		18C8C9312A8B6C08008E4C92 /* TikkleSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleSheet.swift; sourceTree = "<group>"; };
 		18C8C9332A8B6C24008E4C92 /* Tikkle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tikkle.swift; sourceTree = "<group>"; };
 		18C8C9352A8B6C45008E4C92 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		18C8C9392A8B6C81008E4C92 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		18CB6DE02A9375C30011388C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		18FEC5C42A8C988300A804DD /* RecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCollectionViewCell.swift; sourceTree = "<group>"; };
-		18FEC5C62A8CA7C500A804DD /* RecommendCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCollectionReusableView.swift; sourceTree = "<group>"; };
+		18FEC5C42A8C988300A804DD /* ThisMonthTikkleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisMonthTikkleCollectionViewCell.swift; sourceTree = "<group>"; };
 		18FEC5C82A8CBADB00A804DD /* HorizontalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalCollectionViewCell.swift; sourceTree = "<group>"; };
 		18FEC5CC2A8CD48400A804DD /* CarouselLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselLayout.swift; sourceTree = "<group>"; };
 		18FEC5CE2A8CDFA100A804DD /* OtherTikkleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherTikkleCollectionViewCell.swift; sourceTree = "<group>"; };
 		18FEC5D02A8CFCF400A804DD /* OtherTikkleCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherTikkleCollectionReusableView.swift; sourceTree = "<group>"; };
-		B852504C2A8BB63200076DCB /* TikklePageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikklePageCollectionViewCell.swift; sourceTree = "<group>"; };
-		B86DC4CB2A8CBD7900684E0D /* MypageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageTableViewCell.swift; sourceTree = "<group>"; };
+		B852504C2A8BB63200076DCB /* TikkleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleCollectionViewCell.swift; sourceTree = "<group>"; };
+		B86DC4CB2A8CBD7900684E0D /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		D87784342A8C7151002B26F9 /* TikkleListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleListTableViewCell.swift; sourceTree = "<group>"; };
 		D877843A2A8D10EC002B26F9 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D89AD1972A8E8E28001B206A /* TikkleListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleListManager.swift; sourceTree = "<group>"; };
@@ -100,7 +94,7 @@
 		189FEDAC2A8E001200AF47B0 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				18FEC5C42A8C988300A804DD /* RecommendCollectionViewCell.swift */,
+				18FEC5C42A8C988300A804DD /* ThisMonthTikkleCollectionViewCell.swift */,
 				18FEC5C82A8CBADB00A804DD /* HorizontalCollectionViewCell.swift */,
 				18FEC5CE2A8CDFA100A804DD /* OtherTikkleCollectionViewCell.swift */,
 			);
@@ -138,15 +132,14 @@
 			children = (
 				18C8C9302A8B63EC008E4C92 /* Util */,
 				18C8C92F2A8B63E2008E4C92 /* Model */,
-				18C8C91A2A8B62BA008E4C92 /* FeedPage */,
-				18C8C9192A8B62A9008E4C92 /* MyPage */,
-				18C8C9182A8B629F008E4C92 /* CreateTikklePage */,
+				18C8C91A2A8B62BA008E4C92 /* Feed */,
+				18C8C9192A8B62A9008E4C92 /* Info */,
+				18C8C9182A8B629F008E4C92 /* CreateTikkle */,
 				18C8C9172A8B627F008E4C92 /* TikklePage */,
-				18C8C9162A8B624F008E4C92 /* TikkleListPage */,
+				18C8C9162A8B624F008E4C92 /* TikkleList */,
 				18C8C9152A8B6236008E4C92 /* Main */,
 				18C8C9012A8B6216008E4C92 /* AppDelegate.swift */,
 				18C8C9032A8B6216008E4C92 /* SceneDelegate.swift */,
-				18C8C9052A8B6216008E4C92 /* ViewController.swift */,
 				18C8C90A2A8B6219008E4C92 /* Assets.xcassets */,
 				18C8C90C2A8B6219008E4C92 /* LaunchScreen.storyboard */,
 				18C8C90F2A8B6219008E4C92 /* Info.plist */,
@@ -157,62 +150,59 @@
 		18C8C9152A8B6236008E4C92 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				18C8C9072A8B6216008E4C92 /* Main.storyboard */,
 				18CB6DE02A9375C30011388C /* MainViewController.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
 		};
-		18C8C9162A8B624F008E4C92 /* TikkleListPage */ = {
+		18C8C9162A8B624F008E4C92 /* TikkleList */ = {
 			isa = PBXGroup;
 			children = (
 				18C8C91B2A8B6331008E4C92 /* TikkleListPage.storyboard */,
 				18C8C91D2A8B6359008E4C92 /* TikkleListViewController.swift */,
 				D87784342A8C7151002B26F9 /* TikkleListTableViewCell.swift */,
 			);
-			path = TikkleListPage;
+			path = TikkleList;
 			sourceTree = "<group>";
 		};
 		18C8C9172A8B627F008E4C92 /* TikklePage */ = {
 			isa = PBXGroup;
 			children = (
 				18C8C91F2A8B6367008E4C92 /* TikklePage.storyboard */,
-				18C8C9212A8B6371008E4C92 /* TikklePageViewController.swift */,
-				B852504C2A8BB63200076DCB /* TikklePageCollectionViewCell.swift */,
+				18C8C9212A8B6371008E4C92 /* TikkleViewController.swift */,
+				B852504C2A8BB63200076DCB /* TikkleCollectionViewCell.swift */,
 			);
 			name = TikklePage;
 			sourceTree = "<group>";
 		};
-		18C8C9182A8B629F008E4C92 /* CreateTikklePage */ = {
+		18C8C9182A8B629F008E4C92 /* CreateTikkle */ = {
 			isa = PBXGroup;
 			children = (
 				189FEDAD2A8E842800AF47B0 /* View */,
-				18C8C9232A8B6394008E4C92 /* CreateTikklePage.storyboard */,
-				18C8C9252A8B63B1008E4C92 /* CreateTikklePageViewController.swift */,
+				18C8C9252A8B63B1008E4C92 /* CreateTikkleViewController.swift */,
 			);
-			path = CreateTikklePage;
+			path = CreateTikkle;
 			sourceTree = "<group>";
 		};
-		18C8C9192A8B62A9008E4C92 /* MyPage */ = {
+		18C8C9192A8B62A9008E4C92 /* Info */ = {
 			isa = PBXGroup;
 			children = (
 				18C8C9272A8B63BD008E4C92 /* MyPage.storyboard */,
-				18C8C9292A8B63C6008E4C92 /* MyPageViewController.swift */,
-				B86DC4CB2A8CBD7900684E0D /* MypageTableViewCell.swift */,
+				18C8C9292A8B63C6008E4C92 /* InfoViewController.swift */,
+				B86DC4CB2A8CBD7900684E0D /* InfoTableViewCell.swift */,
 			);
-			name = MyPage;
+			name = Info;
 			sourceTree = "<group>";
 		};
-		18C8C91A2A8B62BA008E4C92 /* FeedPage */ = {
+		18C8C91A2A8B62BA008E4C92 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
 				189FEDAC2A8E001200AF47B0 /* Cell */,
 				18FEC5CB2A8CD45700A804DD /* Util */,
 				18FEC5C32A8C984400A804DD /* View */,
-				18C8C92B2A8B63CD008E4C92 /* FeedPage.storyboard */,
-				18C8C92D2A8B63D9008E4C92 /* FeedPageViewController.swift */,
+				18C8C92D2A8B63D9008E4C92 /* FeedViewController.swift */,
 			);
-			path = "\bFeedPage";
+			path = "\bFeed";
 			sourceTree = "<group>";
 		};
 		18C8C92F2A8B63E2008E4C92 /* Model */ = {
@@ -231,6 +221,7 @@
 			children = (
 				18C8C9392A8B6C81008E4C92 /* UIColor.swift */,
 				D877843A2A8D10EC002B26F9 /* CustomButton.swift */,
+				18A765D52AB7F23C00F90285 /* Reusable.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -238,8 +229,8 @@
 		18FEC5C32A8C984400A804DD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				18FEC5C62A8CA7C500A804DD /* RecommendCollectionReusableView.swift */,
 				18FEC5D02A8CFCF400A804DD /* OtherTikkleCollectionReusableView.swift */,
+				18A765D72AB7F34A00F90285 /* ThisMonthTikkleHeaderView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -319,11 +310,8 @@
 				18C8C90E2A8B6219008E4C92 /* LaunchScreen.storyboard in Resources */,
 				18C8C91C2A8B6331008E4C92 /* TikkleListPage.storyboard in Resources */,
 				18C8C90B2A8B6219008E4C92 /* Assets.xcassets in Resources */,
-				18C8C92C2A8B63CD008E4C92 /* FeedPage.storyboard in Resources */,
 				18C8C9202A8B6367008E4C92 /* TikklePage.storyboard in Resources */,
 				18C8C9282A8B63BD008E4C92 /* MyPage.storyboard in Resources */,
-				18C8C9092A8B6216008E4C92 /* Main.storyboard in Resources */,
-				18C8C9242A8B6394008E4C92 /* CreateTikklePage.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,15 +323,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				18FEC5D12A8CFCF400A804DD /* OtherTikkleCollectionReusableView.swift in Sources */,
-				18C8C9222A8B6371008E4C92 /* TikklePageViewController.swift in Sources */,
+				18C8C9222A8B6371008E4C92 /* TikkleViewController.swift in Sources */,
 				18FEC5CD2A8CD48400A804DD /* CarouselLayout.swift in Sources */,
 				189FEDB12A8E885200AF47B0 /* TikkleHorizontalStackView.swift in Sources */,
+				18A765D82AB7F34A00F90285 /* ThisMonthTikkleHeaderView.swift in Sources */,
 				18C8C9322A8B6C08008E4C92 /* TikkleSheet.swift in Sources */,
-				B86DC4CC2A8CBD7900684E0D /* MypageTableViewCell.swift in Sources */,
-				18C8C9062A8B6216008E4C92 /* ViewController.swift in Sources */,
-				18C8C92A2A8B63C6008E4C92 /* MyPageViewController.swift in Sources */,
-				18FEC5C72A8CA7C500A804DD /* RecommendCollectionReusableView.swift in Sources */,
+				B86DC4CC2A8CBD7900684E0D /* InfoTableViewCell.swift in Sources */,
+				18C8C92A2A8B63C6008E4C92 /* InfoViewController.swift in Sources */,
 				D877843B2A8D10EC002B26F9 /* CustomButton.swift in Sources */,
+				18A765D62AB7F23C00F90285 /* Reusable.swift in Sources */,
 				18C8C91E2A8B6359008E4C92 /* TikkleListViewController.swift in Sources */,
 				189FEDB32A8EAC1D00AF47B0 /* TikkleVerticalStackView.swift in Sources */,
 				18C8C9022A8B6216008E4C92 /* AppDelegate.swift in Sources */,
@@ -351,11 +339,11 @@
 				18C8C9042A8B6216008E4C92 /* SceneDelegate.swift in Sources */,
 				189FEDAF2A8E845400AF47B0 /* StampButton.swift in Sources */,
 				D89AD1982A8E8E28001B206A /* TikkleListManager.swift in Sources */,
-				B852504D2A8BB63200076DCB /* TikklePageCollectionViewCell.swift in Sources */,
-				18C8C9262A8B63B1008E4C92 /* CreateTikklePageViewController.swift in Sources */,
-				18C8C92E2A8B63D9008E4C92 /* FeedPageViewController.swift in Sources */,
+				B852504D2A8BB63200076DCB /* TikkleCollectionViewCell.swift in Sources */,
+				18C8C9262A8B63B1008E4C92 /* CreateTikkleViewController.swift in Sources */,
+				18C8C92E2A8B63D9008E4C92 /* FeedViewController.swift in Sources */,
 				18C8C93A2A8B6C81008E4C92 /* UIColor.swift in Sources */,
-				18FEC5C52A8C988300A804DD /* RecommendCollectionViewCell.swift in Sources */,
+				18FEC5C52A8C988300A804DD /* ThisMonthTikkleCollectionViewCell.swift in Sources */,
 				18FEC5CF2A8CDFA100A804DD /* OtherTikkleCollectionViewCell.swift in Sources */,
 				D87784352A8C7151002B26F9 /* TikkleListTableViewCell.swift in Sources */,
 				18CB6DE12A9375C30011388C /* MainViewController.swift in Sources */,
@@ -367,14 +355,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		18C8C9072A8B6216008E4C92 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				18C8C9082A8B6216008E4C92 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		18C8C90C2A8B6219008E4C92 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -512,7 +492,6 @@
 				INFOPLIST_FILE = Tikkle/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -541,7 +520,6 @@
 				INFOPLIST_FILE = Tikkle/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
