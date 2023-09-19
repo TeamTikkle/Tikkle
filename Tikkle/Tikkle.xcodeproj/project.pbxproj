@@ -18,11 +18,7 @@
 		18C8C90B2A8B6219008E4C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18C8C90A2A8B6219008E4C92 /* Assets.xcassets */; };
 		18C8C90E2A8B6219008E4C92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C8C90C2A8B6219008E4C92 /* LaunchScreen.storyboard */; };
 		18C8C91E2A8B6359008E4C92 /* TikkleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C91D2A8B6359008E4C92 /* TikkleListViewController.swift */; };
-		18C8C9202A8B6367008E4C92 /* TikklePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C8C91F2A8B6367008E4C92 /* TikklePage.storyboard */; };
-		18C8C9222A8B6371008E4C92 /* TikkleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9212A8B6371008E4C92 /* TikkleViewController.swift */; };
 		18C8C9262A8B63B1008E4C92 /* CreateTikkleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9252A8B63B1008E4C92 /* CreateTikkleViewController.swift */; };
-		18C8C9282A8B63BD008E4C92 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C8C9272A8B63BD008E4C92 /* MyPage.storyboard */; };
-		18C8C92A2A8B63C6008E4C92 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9292A8B63C6008E4C92 /* InfoViewController.swift */; };
 		18C8C92E2A8B63D9008E4C92 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C92D2A8B63D9008E4C92 /* FeedViewController.swift */; };
 		18C8C9322A8B6C08008E4C92 /* TikkleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9312A8B6C08008E4C92 /* TikkleSheet.swift */; };
 		18C8C9342A8B6C24008E4C92 /* Tikkle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9332A8B6C24008E4C92 /* Tikkle.swift */; };
@@ -34,8 +30,13 @@
 		18FEC5CD2A8CD48400A804DD /* CarouselLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FEC5CC2A8CD48400A804DD /* CarouselLayout.swift */; };
 		18FEC5CF2A8CDFA100A804DD /* OtherTikkleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FEC5CE2A8CDFA100A804DD /* OtherTikkleCollectionViewCell.swift */; };
 		18FEC5D12A8CFCF400A804DD /* OtherTikkleCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FEC5D02A8CFCF400A804DD /* OtherTikkleCollectionReusableView.swift */; };
-		B852504D2A8BB63200076DCB /* TikkleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B852504C2A8BB63200076DCB /* TikkleCollectionViewCell.swift */; };
-		B86DC4CC2A8CBD7900684E0D /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DC4CB2A8CBD7900684E0D /* InfoTableViewCell.swift */; };
+		B8C80ACF2AB9934200F0755C /* MakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C80ACE2AB9934200F0755C /* MakerViewController.swift */; };
+		B8C80AD22AB9935000F0755C /* FixRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C80AD12AB9935000F0755C /* FixRequestViewController.swift */; };
+		B8C80AD52AB9935F00F0755C /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C80AD42AB9935F00F0755C /* NoticeViewController.swift */; };
+		B8C80AD72AB9936600F0755C /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C80AD62AB9936600F0755C /* InfoCell.swift */; };
+		B8C80AD92AB9936B00F0755C /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C80AD82AB9936B00F0755C /* InfoViewController.swift */; };
+		B8C80ADB2AB9942D00F0755C /* TikkleSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C80ADA2AB9942D00F0755C /* TikkleSheetViewController.swift */; };
+		B8C80ADD2AB9943400F0755C /* TikkleSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C80ADC2AB9943400F0755C /* TikkleSheetCell.swift */; };
 		D87784352A8C7151002B26F9 /* TikkleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87784342A8C7151002B26F9 /* TikkleListTableViewCell.swift */; };
 		D877843B2A8D10EC002B26F9 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D877843A2A8D10EC002B26F9 /* CustomButton.swift */; };
 		D89AD1982A8E8E28001B206A /* TikkleListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89AD1972A8E8E28001B206A /* TikkleListManager.swift */; };
@@ -54,11 +55,7 @@
 		18C8C90D2A8B6219008E4C92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18C8C90F2A8B6219008E4C92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18C8C91D2A8B6359008E4C92 /* TikkleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleListViewController.swift; sourceTree = "<group>"; };
-		18C8C91F2A8B6367008E4C92 /* TikklePage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TikklePage.storyboard; sourceTree = "<group>"; };
-		18C8C9212A8B6371008E4C92 /* TikkleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleViewController.swift; sourceTree = "<group>"; };
 		18C8C9252A8B63B1008E4C92 /* CreateTikkleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTikkleViewController.swift; sourceTree = "<group>"; };
-		18C8C9272A8B63BD008E4C92 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
-		18C8C9292A8B63C6008E4C92 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		18C8C92D2A8B63D9008E4C92 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		18C8C9312A8B6C08008E4C92 /* TikkleSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleSheet.swift; sourceTree = "<group>"; };
 		18C8C9332A8B6C24008E4C92 /* Tikkle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tikkle.swift; sourceTree = "<group>"; };
@@ -70,8 +67,13 @@
 		18FEC5CC2A8CD48400A804DD /* CarouselLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselLayout.swift; sourceTree = "<group>"; };
 		18FEC5CE2A8CDFA100A804DD /* OtherTikkleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherTikkleCollectionViewCell.swift; sourceTree = "<group>"; };
 		18FEC5D02A8CFCF400A804DD /* OtherTikkleCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherTikkleCollectionReusableView.swift; sourceTree = "<group>"; };
-		B852504C2A8BB63200076DCB /* TikkleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleCollectionViewCell.swift; sourceTree = "<group>"; };
-		B86DC4CB2A8CBD7900684E0D /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
+		B8C80ACE2AB9934200F0755C /* MakerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakerViewController.swift; sourceTree = "<group>"; };
+		B8C80AD12AB9935000F0755C /* FixRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixRequestViewController.swift; sourceTree = "<group>"; };
+		B8C80AD42AB9935F00F0755C /* NoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
+		B8C80AD62AB9936600F0755C /* InfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
+		B8C80AD82AB9936B00F0755C /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		B8C80ADA2AB9942D00F0755C /* TikkleSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TikkleSheetViewController.swift; sourceTree = "<group>"; };
+		B8C80ADC2AB9943400F0755C /* TikkleSheetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TikkleSheetCell.swift; sourceTree = "<group>"; };
 		D87784342A8C7151002B26F9 /* TikkleListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleListTableViewCell.swift; sourceTree = "<group>"; };
 		D877843A2A8D10EC002B26F9 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D89AD1972A8E8E28001B206A /* TikkleListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleListManager.swift; sourceTree = "<group>"; };
@@ -128,14 +130,14 @@
 		18C8C9002A8B6216008E4C92 /* Tikkle */ = {
 			isa = PBXGroup;
 			children = (
+				18C8C9152A8B6236008E4C92 /* Main */,
 				18C8C9302A8B63EC008E4C92 /* Util */,
 				18C8C92F2A8B63E2008E4C92 /* Model */,
 				18C8C91A2A8B62BA008E4C92 /* Feed */,
-				18C8C9192A8B62A9008E4C92 /* Info */,
-				18C8C9182A8B629F008E4C92 /* CreateTikkle */,
-				18C8C9172A8B627F008E4C92 /* TikklePage */,
 				18C8C9162A8B624F008E4C92 /* TikkleList */,
-				18C8C9152A8B6236008E4C92 /* Main */,
+				18C8C9182A8B629F008E4C92 /* CreateTikkle */,
+				18C8C9172A8B627F008E4C92 /* TikkleSheet */,
+				18C8C9192A8B62A9008E4C92 /* Info */,
 				18C8C9012A8B6216008E4C92 /* AppDelegate.swift */,
 				18C8C9032A8B6216008E4C92 /* SceneDelegate.swift */,
 				18C8C90A2A8B6219008E4C92 /* Assets.xcassets */,
@@ -162,14 +164,13 @@
 			path = TikkleList;
 			sourceTree = "<group>";
 		};
-		18C8C9172A8B627F008E4C92 /* TikklePage */ = {
+		18C8C9172A8B627F008E4C92 /* TikkleSheet */ = {
 			isa = PBXGroup;
 			children = (
-				18C8C91F2A8B6367008E4C92 /* TikklePage.storyboard */,
-				18C8C9212A8B6371008E4C92 /* TikkleViewController.swift */,
-				B852504C2A8BB63200076DCB /* TikkleCollectionViewCell.swift */,
+				B8C80ADA2AB9942D00F0755C /* TikkleSheetViewController.swift */,
+				B8C80ADC2AB9943400F0755C /* TikkleSheetCell.swift */,
 			);
-			name = TikklePage;
+			name = TikkleSheet;
 			sourceTree = "<group>";
 		};
 		18C8C9182A8B629F008E4C92 /* CreateTikkle */ = {
@@ -184,9 +185,11 @@
 		18C8C9192A8B62A9008E4C92 /* Info */ = {
 			isa = PBXGroup;
 			children = (
-				18C8C9272A8B63BD008E4C92 /* MyPage.storyboard */,
-				18C8C9292A8B63C6008E4C92 /* InfoViewController.swift */,
-				B86DC4CB2A8CBD7900684E0D /* InfoTableViewCell.swift */,
+				B8C80AD82AB9936B00F0755C /* InfoViewController.swift */,
+				B8C80AD62AB9936600F0755C /* InfoCell.swift */,
+				B8C80AD32AB9935400F0755C /* Notice */,
+				B8C80AD02AB9934600F0755C /* FixRequest */,
+				B8C80ACD2AB9933800F0755C /* Creator */,
 			);
 			name = Info;
 			sourceTree = "<group>";
@@ -238,6 +241,30 @@
 				18FEC5CC2A8CD48400A804DD /* CarouselLayout.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		B8C80ACD2AB9933800F0755C /* Creator */ = {
+			isa = PBXGroup;
+			children = (
+				B8C80ACE2AB9934200F0755C /* MakerViewController.swift */,
+			);
+			name = Creator;
+			sourceTree = "<group>";
+		};
+		B8C80AD02AB9934600F0755C /* FixRequest */ = {
+			isa = PBXGroup;
+			children = (
+				B8C80AD12AB9935000F0755C /* FixRequestViewController.swift */,
+			);
+			name = FixRequest;
+			sourceTree = "<group>";
+		};
+		B8C80AD32AB9935400F0755C /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				B8C80AD42AB9935F00F0755C /* NoticeViewController.swift */,
+			);
+			name = Notice;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,8 +333,6 @@
 			files = (
 				18C8C90E2A8B6219008E4C92 /* LaunchScreen.storyboard in Resources */,
 				18C8C90B2A8B6219008E4C92 /* Assets.xcassets in Resources */,
-				18C8C9202A8B6367008E4C92 /* TikklePage.storyboard in Resources */,
-				18C8C9282A8B63BD008E4C92 /* MyPage.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,27 +343,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8C80ADB2AB9942D00F0755C /* TikkleSheetViewController.swift in Sources */,
 				18FEC5D12A8CFCF400A804DD /* OtherTikkleCollectionReusableView.swift in Sources */,
-				18C8C9222A8B6371008E4C92 /* TikkleViewController.swift in Sources */,
 				18FEC5CD2A8CD48400A804DD /* CarouselLayout.swift in Sources */,
 				189FEDB12A8E885200AF47B0 /* TikkleHorizontalStackView.swift in Sources */,
+				B8C80AD92AB9936B00F0755C /* InfoViewController.swift in Sources */,
 				18A765D82AB7F34A00F90285 /* ThisMonthTikkleHeaderView.swift in Sources */,
 				18C8C9322A8B6C08008E4C92 /* TikkleSheet.swift in Sources */,
-				B86DC4CC2A8CBD7900684E0D /* InfoTableViewCell.swift in Sources */,
-				18C8C92A2A8B63C6008E4C92 /* InfoViewController.swift in Sources */,
+				B8C80AD22AB9935000F0755C /* FixRequestViewController.swift in Sources */,
 				D877843B2A8D10EC002B26F9 /* CustomButton.swift in Sources */,
 				18A765D62AB7F23C00F90285 /* Reusable.swift in Sources */,
+				B8C80AD52AB9935F00F0755C /* NoticeViewController.swift in Sources */,
 				18C8C91E2A8B6359008E4C92 /* TikkleListViewController.swift in Sources */,
 				189FEDB32A8EAC1D00AF47B0 /* TikkleVerticalStackView.swift in Sources */,
+				B8C80ACF2AB9934200F0755C /* MakerViewController.swift in Sources */,
 				18C8C9022A8B6216008E4C92 /* AppDelegate.swift in Sources */,
 				18FEC5C92A8CBADB00A804DD /* HorizontalCollectionViewCell.swift in Sources */,
 				18C8C9042A8B6216008E4C92 /* SceneDelegate.swift in Sources */,
 				189FEDAF2A8E845400AF47B0 /* StampButton.swift in Sources */,
 				D89AD1982A8E8E28001B206A /* TikkleListManager.swift in Sources */,
-				B852504D2A8BB63200076DCB /* TikkleCollectionViewCell.swift in Sources */,
 				18C8C9262A8B63B1008E4C92 /* CreateTikkleViewController.swift in Sources */,
 				18C8C92E2A8B63D9008E4C92 /* FeedViewController.swift in Sources */,
+				B8C80ADD2AB9943400F0755C /* TikkleSheetCell.swift in Sources */,
 				18C8C93A2A8B6C81008E4C92 /* UIColor.swift in Sources */,
+				B8C80AD72AB9936600F0755C /* InfoCell.swift in Sources */,
 				18FEC5C52A8C988300A804DD /* ThisMonthTikkleCollectionViewCell.swift in Sources */,
 				18FEC5CF2A8CDFA100A804DD /* OtherTikkleCollectionViewCell.swift in Sources */,
 				D87784352A8C7151002B26F9 /* TikkleListTableViewCell.swift in Sources */,

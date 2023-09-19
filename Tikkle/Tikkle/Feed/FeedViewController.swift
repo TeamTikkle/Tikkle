@@ -132,7 +132,7 @@ extension FeedViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if indexPath.section == 1 {
 
             //뷰컨트롤러 인스턴스 생성
-            let vc = TikkleViewController()
+            let vc = TikkleSheetViewController()
             //데이터 할당. 여기서 합친 리스트를 줘.
             vc.tikkle = combinedList[indexPath.row]
             
@@ -172,7 +172,7 @@ extension FeedViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     
     func pushViewController(tikkle: TikkleSheet) {
-        let vc = TikkleViewController()
+        let vc = TikkleSheetViewController()
         //MARK: - TikklePageViewController의 데이터를 어디로
         vc.tikkle = tikkle
         navigationController?.pushViewController(vc, animated: true)

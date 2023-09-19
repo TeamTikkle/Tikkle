@@ -1,104 +1,115 @@
 //
-//  MyPageViewController.swift
-//  Tikkle
+//  InfoViewController.swift
+//  Practice_tikkle
 //
-//  Created by 김도현 on 2023/08/15.
+//  Created by 김지훈 on 2023/09/14.
 //
 
 import UIKit
+import SnapKit
 
 class InfoViewController: UIViewController {
     
-    var tikkleSheet: TikkleSheet?
-    var tikkleList: TikkleListManager = TikkleListManager()
+    let infoMenu = ["공지사항", "기능 추가 요청 / 오류 신고", "만든이"]
+    let infoTableSection = ["version", "infomenu"]
     
-    @IBOutlet weak var myPageMyImg: UIImageView!
-    @IBOutlet weak var myPageMyIDLabel: UILabel!
-    @IBOutlet weak var myPageMyEditBtn: UIButton!
+    let headerArea = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
     
-    @IBOutlet weak var ingTikkleView: UIView!
-    @IBOutlet weak var ingTikkleCountLabel: UILabel!
-    @IBOutlet weak var doneTikkleView: UIView!
-    @IBOutlet weak var doneTikkleCountLabel: UILabel!
+    lazy var infoTableView: UITableView = {
+        let infoTableView = UITableView()
+        infoTableView.separatorStyle = .none
+        infoTableView.backgroundColor = .black
+        infoTableView.isScrollEnabled = false
+        infoTableView.dataSource = self
+        infoTableView.delegate = self
+        infoTableView.register(InfoCell.self, forCellReuseIdentifier: InfoCell.identifier)
+        return infoTableView
+    }()
     
-    @IBOutlet weak var MyPageTableView: UITableView!
-    
-    //MARK: - MyPage 더미데이터
-    let menuIcon: [UIImage?] = [
-        UIImage(named: "heart.png"),
-        UIImage(named: "vector.png"),
-        UIImage(named: "setting.png"),
-        UIImage(named: "contract.png"),
-        UIImage(named: "email.png")
-    ]
-    var menu: [String] = ["내가 찜한 티끌판", "친구 초대", "앱 설정", "서비스 약관", "기능 추가 요청"]
-    
+    lazy var headerLabel: UILabel = {
+        let headerLabel = UILabel()
+        headerLabel.text = "설정"
+        headerLabel.font = .systemFont(ofSize: 20, weight: .bold)
+        headerLabel.textColor = .white
+        headerLabel.textAlignment = .left
+        return headerLabel
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        myInfoStyle()
-        countViewStyle()
-        MyPageTableView.delegate = self
-        MyPageTableView.dataSource = self
+        view.backgroundColor = .black
+        infoTableViewPrint()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        //MARK: - tikkleList.completList 개수가 나오면 되는거기는 한데... 어찌 처리해야하는거지???
-        ingTikkleCountLabel.text = String("\(tikkleList.getTikkleList().count - tikkleList.completList().count)개")
-        doneTikkleCountLabel.text = String("\(tikkleList.completList().count)개")
+    func infoTableViewPrint() {
+        view.addSubview(infoTableView)
+        
+        infoTableView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.left.equalToSuperview().offset(20)
+            make.right.equalToSuperview().offset(-10)
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        infoTableView.tableHeaderView = headerArea
+        headerArea.addSubview(headerLabel)
+        headerLabel.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
-    
-    //MARK: - MyPage info 커스텀
-    func myInfoStyle() {
-        myPageMyImg.image = UIImage(named: "TikkleON.png")
-        myPageMyIDLabel.text = "티끌이"
-        
-        let attributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 16, weight: .bold), // semibold 굵기 설정
-            .foregroundColor: UIColor.black
-        ]
-        let attributedText = NSAttributedString(string: "편집", attributes: attributes)
-        myPageMyEditBtn.setAttributedTitle(attributedText, for: .normal)
-        myPageMyEditBtn.backgroundColor = UIColor.mainColor
-        myPageMyEditBtn.layer.cornerRadius = 10
-        
-    }
-    
-    //MARK: - MyPage count view 커스텀
-    func countViewStyle() {
-        ingTikkleView.layer.borderWidth = 1.0
-        ingTikkleView.layer.borderColor = UIColor.gray.cgColor
-        ingTikkleView.layer.cornerRadius = 30
-        ingTikkleView.layer.masksToBounds = true
-        
-        //MARK: - tikkleList.completList 개수가 나오면 되는거기는 한데... 어찌 처리해야하는거지???
-        ingTikkleCountLabel.text = String("\(tikkleList.getTikkleList().count - tikkleList.completList().count)개")
-    
-        doneTikkleView.layer.borderWidth = 1.0
-        doneTikkleView.layer.borderColor = UIColor.gray.cgColor
-        doneTikkleView.layer.cornerRadius = 30
-        doneTikkleView.layer.masksToBounds = true
-        
-        //MARK: - tikkleList.completList 개수가 나오면 되는거기는 한데... 어찌 처리해야하는거지???
-        doneTikkleCountLabel.text = String("\(tikkleList.completList().count)개")
-    }
-    
 }
 
-//MARK: - MyPage TableView Setting
-extension InfoViewController : UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menu.count
+extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return infoTableSection.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 1
+        } else if section == 1 {
+            return infoMenu.count
+        } else {
+            return 0
+        }
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MypageTableViewCell", for: indexPath) as? InfoTableViewCell else {
+        let cell = tableView.dequeueReusableCell(withIdentifier: InfoCell.identifier, for: indexPath) as! InfoCell
+        
+        cell.selectionStyle = .none
+        cell.backgroundColor = .black
+        cell.infoMenuTitle.textColor = .white
+        cell.versionText.textColor = .white
+        
+        if indexPath.section == 0 {
+            cell.infoMenuTitle.text = "버전"
+            cell.versionText.text = "1.0.1"
+        } else if indexPath.section == 1 {
+            cell.infoMenuTitle.text = infoMenu[indexPath.row]
+            cell.accessoryType = .disclosureIndicator
+        } else {
             return UITableViewCell()
         }
         
-        cell.mypageMenuImg.image = menuIcon[indexPath.row]
-        cell.mypageMenuLabel.text = menu[indexPath.row]
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let page = [NoticeViewController(), FixRequestViewController(), CreatorViewController()]
+        
+        if indexPath.section == 0 {
+            return
+        } else if indexPath.section == 1 {
+            navigationController?.pushViewController(page[indexPath.row], animated: true)
+        } else {
+            return
+        }
+    }
+    
 }
