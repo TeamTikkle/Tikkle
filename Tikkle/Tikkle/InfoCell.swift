@@ -13,15 +13,13 @@ class InfoCell: UITableViewCell {
     
     lazy var infoMenuTitle: UILabel = {
         let infoMenuTitle = UILabel()
-        infoMenuTitle.font = .systemFont(ofSize: 15, weight: .regular)
-        infoMenuTitle.textColor = .black
+        infoMenuTitle.font = .systemFont(ofSize: 16, weight: .regular)
         return infoMenuTitle
     }()
     
     lazy var versionText: UILabel = {
         let versionText = UILabel()
-        versionText.font = .systemFont(ofSize: 15, weight: .regular)
-        versionText.textColor = .black
+        versionText.font = .systemFont(ofSize: 16, weight: .regular)
         return versionText
     }()
     
