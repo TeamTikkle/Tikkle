@@ -15,7 +15,7 @@ class OtherTikkleCollectionReusableView: UICollectionReusableView {
         st.axis = .vertical
         st.alignment = .leading
         st.distribution = .fillProportionally
-        st.spacing = -16
+        st.spacing = 0
         return st
     }()
     private let otherTikkleTitleLabel: UILabel = {
@@ -32,6 +32,7 @@ class OtherTikkleCollectionReusableView: UICollectionReusableView {
         label.textColor = UIColor.subTitleColor
         return label
     }()
+    private let categoryView: CategoryStackView = CategoryStackView()
     private let margin: CGFloat = 20
     
     override init(frame: CGRect) {
@@ -52,12 +53,17 @@ private extension OtherTikkleCollectionReusableView {
     
     func addViews() {
         addSubview(otherStackView)
+        addSubview(categoryView)
     }
     
     func autoLayoutSetup() {
         otherStackView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(10)
+            make.top.equalToSuperview().inset(12)
             make.leading.trailing.equalToSuperview().inset(margin)
+        }
+        categoryView.snp.makeConstraints { make in
+            make.top.equalTo(otherStackView.snp.bottom).offset(8)
+            make.left.bottom.equalToSuperview().inset(margin)
         }
     }
 }

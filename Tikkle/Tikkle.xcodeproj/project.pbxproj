@@ -25,6 +25,7 @@
 		18C8C9362A8B6C45008E4C92 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9352A8B6C45008E4C92 /* DummyData.swift */; };
 		18C8C93A2A8B6C81008E4C92 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C9392A8B6C81008E4C92 /* UIColor.swift */; };
 		18CB6DE12A9375C30011388C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CB6DE02A9375C30011388C /* MainViewController.swift */; };
+		18DA4B4E2AD54CA300708FB2 /* CategoryStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA4B4D2AD54CA300708FB2 /* CategoryStackView.swift */; };
 		18FEC5C52A8C988300A804DD /* ThisMonthTikkleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FEC5C42A8C988300A804DD /* ThisMonthTikkleCollectionViewCell.swift */; };
 		18FEC5C92A8CBADB00A804DD /* HorizontalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FEC5C82A8CBADB00A804DD /* HorizontalCollectionViewCell.swift */; };
 		18FEC5CD2A8CD48400A804DD /* CarouselLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FEC5CC2A8CD48400A804DD /* CarouselLayout.swift */; };
@@ -62,6 +63,7 @@
 		18C8C9352A8B6C45008E4C92 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		18C8C9392A8B6C81008E4C92 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		18CB6DE02A9375C30011388C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		18DA4B4D2AD54CA300708FB2 /* CategoryStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStackView.swift; sourceTree = "<group>"; };
 		18FEC5C42A8C988300A804DD /* ThisMonthTikkleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisMonthTikkleCollectionViewCell.swift; sourceTree = "<group>"; };
 		18FEC5C82A8CBADB00A804DD /* HorizontalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalCollectionViewCell.swift; sourceTree = "<group>"; };
 		18FEC5CC2A8CD48400A804DD /* CarouselLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselLayout.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			children = (
 				18FEC5D02A8CFCF400A804DD /* OtherTikkleCollectionReusableView.swift */,
 				18A765D72AB7F34A00F90285 /* ThisMonthTikkleHeaderView.swift */,
+				18DA4B4D2AD54CA300708FB2 /* CategoryStackView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				D89AD1982A8E8E28001B206A /* TikkleListManager.swift in Sources */,
 				18C8C9262A8B63B1008E4C92 /* CreateTikkleViewController.swift in Sources */,
 				18C8C92E2A8B63D9008E4C92 /* FeedViewController.swift in Sources */,
+				18DA4B4E2AD54CA300708FB2 /* CategoryStackView.swift in Sources */,
 				B8C80ADD2AB9943400F0755C /* TikkleSheetCell.swift in Sources */,
 				18C8C93A2A8B6C81008E4C92 /* UIColor.swift in Sources */,
 				B8C80AD72AB9936600F0755C /* InfoCell.swift in Sources */,

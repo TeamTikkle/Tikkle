@@ -155,7 +155,7 @@ extension FeedViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return section == 0 ? CGSize(width: .infinity, height: 110.0) : CGSize(width: .infinity, height: 100.0)
+        return section == 0 ? CGSize(width: .infinity, height: 110.0) : CGSize(width: .infinity, height: 120.0)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
