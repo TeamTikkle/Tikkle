@@ -12,58 +12,57 @@ class InfoViewController: UIViewController {
     
     let infoMenu = ["공지사항", "기능 추가 요청 / 오류 신고", "만든이"]
     let infoTableSection = ["version", "infomenu"]
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationUI()
+        infoTableViewPrint()
+    }
     
-    let headerArea = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+    func navigationUI() {
+        let logoImage = UIImage(named: "navi_Logo")
+        let logoImageView = UIImageView(image: logoImage)
+        logoImageView.contentMode = .scaleAspectFit
+        let logoItem = UIBarButtonItem(customView: logoImageView)
+        navigationItem.leftBarButtonItem = logoItem
+        
+        navigationItem.title = "설정"
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.largeTitleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.white
+        ]
+        appearance.backgroundColor = .clear
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+    }
     
     lazy var infoTableView: UITableView = {
         let infoTableView = UITableView()
         infoTableView.separatorStyle = .none
-        infoTableView.backgroundColor = .black
         infoTableView.isScrollEnabled = false
         infoTableView.dataSource = self
         infoTableView.delegate = self
         infoTableView.register(InfoCell.self, forCellReuseIdentifier: InfoCell.identifier)
+        infoTableView.backgroundColor = .black
         return infoTableView
     }()
     
-    lazy var headerLabel: UILabel = {
-        let headerLabel = UILabel()
-        headerLabel.text = "설정"
-        headerLabel.font = .systemFont(ofSize: 20, weight: .bold)
-        headerLabel.textColor = .white
-        headerLabel.textAlignment = .left
-        return headerLabel
-    }()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .black
-        infoTableViewPrint()
-    }
-    
     func infoTableViewPrint() {
         view.addSubview(infoTableView)
-        
         infoTableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.left.equalToSuperview().offset(20)
             make.right.equalToSuperview().offset(-10)
             make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
-        
-        infoTableView.tableHeaderView = headerArea
-        headerArea.addSubview(headerLabel)
-        headerLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
     }
 }
 
 extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return infoTableSection.count
     }
