@@ -30,6 +30,13 @@ class CategoryStackView: UIStackView {
         button.contentEdgeInsets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
         return button
     }()
+    private let otherButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("기타", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.contentEdgeInsets = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
+        return button
+    }()
     private let lineView: UIView = {
         let view = UIView()
         view.backgroundColor = .mainColor
@@ -76,6 +83,7 @@ private extension CategoryStackView {
         addArrangedSubview(uniqueChallenge)
         addArrangedSubview(selfImprovementButton)
         addArrangedSubview(challenge30Button)
+        addArrangedSubview(otherButton)
         addSubview(lineView)
     }
     func autoLayoutSetup() {
@@ -90,6 +98,7 @@ private extension CategoryStackView {
         uniqueChallenge.addTarget(self, action: #selector(buttonClick), for: .touchUpInside)
         selfImprovementButton.addTarget(self, action: #selector(buttonClick), for: .touchUpInside)
         challenge30Button.addTarget(self, action: #selector(buttonClick), for: .touchUpInside)
+        otherButton.addTarget(self, action: #selector(buttonClick), for: .touchUpInside)
     }
     @objc func buttonClick(button: UIButton) {
         for index in 0..<arrangedSubviews.count {

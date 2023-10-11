@@ -77,6 +77,9 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
         }
         tikkleTitleLabel.text = tikkle.title
         tikkleDescriptionLabel.text = tikkle.description
+        
+        backgroundImageView.layer.cornerRadius = 6
+        backgroundImageView.layer.masksToBounds = true
     }
     
 }
