@@ -9,57 +9,28 @@ import UIKit
 
 class OtherTikkleCollectionViewCell: UICollectionViewCell {
     static let identifier: String = "\(OtherTikkleCollectionViewCell.self)"
-    lazy var userStackView: UIStackView = {
-        let st = UIStackView(arrangedSubviews: [userImageView, userNameLabel])
-        st.axis = .horizontal
-        st.alignment = .center
-        st.distribution = .equalSpacing
-        st.isLayoutMarginsRelativeArrangement = true
-        st.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 5, right: 10)
-        st.backgroundColor = UIColor(hexCode: "08190A")
-        return st
-    }()
-    let userImageView: UIImageView = UIImageView(image: UIImage(named: "profileImg"))
-    let userNameLabel: UILabel = {
-        let lb = UILabel()
-        lb.text = "test_ID"
-        lb.font = .systemFont(ofSize: 15, weight: .regular)
-        lb.textColor = .white
-        return lb
-    }()
     lazy var tikkleStackView: UIStackView = {
-        let st = UIStackView(arrangedSubviews: [kikkleTitleLabel, likeButton])
-        st.axis = .horizontal
-        st.alignment = .center
-        st.distribution = .equalSpacing
-        st.isLayoutMarginsRelativeArrangement = true
-        st.layoutMargins = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
-        st.backgroundColor = .black.withAlphaComponent(0.6)
+        let st = UIStackView(arrangedSubviews: [tikkleTitleLabel, tikkleDescriptionLabel])
+        st.axis = .vertical
+        st.alignment = .leading
+        st.distribution = .fillProportionally
+        st.spacing = 8
         return st
     }()
-    let kikkleTitleLabel: UILabel = {
+    let tikkleTitleLabel: UILabel = {
         let lb = UILabel()
         lb.text = "매일 commit 하기"
-        lb.font = .systemFont(ofSize: 15, weight: .semibold)
+        lb.font = .systemFont(ofSize: 18, weight: .semibold)
         lb.textColor = .white
         return lb
     }()
-    let likeButton: UIButton = {
-        let btn = UIButton()
-        btn.setImage(UIImage(systemName: "heart"), for: .normal)
-        btn.setImage(UIImage(systemName: "heart.fill"), for: .selected)
-        btn.tintColor = .mainColor
-        return btn
+    let tikkleDescriptionLabel: UILabel = {
+        let lb = UILabel()
+        lb.text = "커밋을 1일 1커밋 하기위해서 어쩌구 저꺼구"
+        lb.font = .systemFont(ofSize: 16, weight: .regular)
+        lb.textColor = .gray
+        return lb
     }()
-    let progressBar: UIView = {
-        let view = UIView()
-        view.backgroundColor = .subTitleColor
-        view.layer.masksToBounds = true
-        view.layer.cornerRadius = 6
-        return view
-    }()
-    var progressBarAnimationLayer: CALayer? = nil
-    
     let backgroundImageView = UIImageView(image: UIImage(named: "profileImg"))
     var tikkle: TikkleSheet? = nil {
         didSet {
@@ -72,46 +43,27 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        likeButton.addTarget(self, action: #selector(likeButtonClick), for: .touchUpInside)
         
         backgroundImageView.contentMode = .scaleToFill
         
         contentView.addSubview(backgroundImageView)
-        contentView.addSubview(userStackView)
         contentView.addSubview(tikkleStackView)
-        contentView.addSubview(progressBar)
         
         backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
         backgroundImageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         backgroundImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        backgroundImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        
-        userStackView.translatesAutoresizingMaskIntoConstraints = false
-        userStackView.topAnchor.constraint(equalTo: backgroundImageView.topAnchor).isActive = true
-        userStackView.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor).isActive = true
-        userStackView.trailingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor).isActive = true
-        userStackView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        backgroundImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        backgroundImageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.75).isActive = true
         
         tikkleStackView.translatesAutoresizingMaskIntoConstraints = false
+        tikkleStackView.topAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: 12).isActive = true
         tikkleStackView.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor).isActive = true
         tikkleStackView.trailingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor).isActive = true
-        tikkleStackView.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor).isActive = true
-        tikkleStackView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        
-        progressBar.translatesAutoresizingMaskIntoConstraints = false
-        progressBar.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        progressBar.leadingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor, constant: 10).isActive = true
-        progressBar.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        progressBar.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        progressBar.widthAnchor.constraint(equalToConstant: 10).isActive = true
+        tikkleStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    @objc func likeButtonClick() {
-        likeButton.isSelected = !likeButton.isSelected
     }
     
     private func uiSetting() {
@@ -123,35 +75,11 @@ class OtherTikkleCollectionViewCell: UICollectionViewCell {
                 self.backgroundImageView.image = image
             }
         }
-        kikkleTitleLabel.text = tikkle.title
-        progressBarFill()
-    }
-    
-    private func progressBarFill() {
-        guard let tikkle else { return }
+        tikkleTitleLabel.text = tikkle.title
+        tikkleDescriptionLabel.text = tikkle.description
         
-        layoutIfNeeded()
-                
-        let notCompleteCount = tikkle.stampList.count - tikkle.stampList.filter { $0.isCompletion }.count
-        let completeRate: Double = Double(notCompleteCount) / Double(tikkle.stampList.count)
-        
-        progressBarAnimationLayer?.removeFromSuperlayer()
-        let fillLayer = progressBarLayer(completeRate: completeRate)
-        
-        let animation = CABasicAnimation(keyPath: "position.y")
-        animation.fromValue = progressBar.bounds.height + (progressBar.bounds.height / 2)
-        animation.toValue = (progressBar.bounds.height * completeRate) + (progressBar.bounds.height / 2)
-        animation.duration = 0.7
-        fillLayer.add(animation, forKey: "ProgressBarAnimation")
-        progressBar.layer.addSublayer(fillLayer)
-        progressBarAnimationLayer = fillLayer
-    }
-    
-    private func progressBarLayer(completeRate: CGFloat) -> CALayer {
-        let fillLayer = CALayer()
-        fillLayer.frame = CGRect(x: 0, y: progressBar.bounds.height * completeRate, width: progressBar.bounds.width, height: progressBar.bounds.height)
-        fillLayer.backgroundColor = UIColor.mainColor.cgColor
-        return fillLayer
+        backgroundImageView.layer.cornerRadius = 6
+        backgroundImageView.layer.masksToBounds = true
     }
     
 }
