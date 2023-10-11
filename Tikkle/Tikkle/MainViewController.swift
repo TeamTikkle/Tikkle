@@ -25,8 +25,8 @@ class MainViewController: UITabBarController {
     }
 
     private func viewControllerSetting() {
-        let vc1 = createNavigationController(viewController: TikkleListViewController())
-        let vc2 = createNavigationController(viewController: FeedViewController())
+        let vc1 = createNavigationController(viewController: FeedViewController())
+        let vc2 = createNavigationController(viewController: TikkleListViewController())
         let vc3 = createNavigationController(viewController: InfoViewController())
 
         self.setViewControllers([vc1, vc2, vc3], animated: false)
@@ -34,12 +34,12 @@ class MainViewController: UITabBarController {
         guard let items = self.tabBar.items else { return }
         
         vc1.tabBarItem.title = "Template"
-        vc2.tabBarItem.title = "Stamplt"
+        vc2.tabBarItem.title = "Tikkle"
         vc3.tabBarItem.title = "Info"
 
-        let unSelectedImages = ["tabBarTikklePageUnselected", "tabBarTemplatePageUnselected", "tabBarInfoPageUnselected"]
+        let unSelectedImages = ["tabBarTemplatePageUnselected", "tabBarTikklePageUnselected", "tabBarInfoPageUnselected"]
         
-        let selectedImages = ["tabBarTikklePageSelected", "tabBarTemplatePageSelected", "tabBarInfoPageSelected"]
+        let selectedImages = ["tabBarTemplatePageSelected", "tabBarTikklePageSelected", "tabBarInfoPageSelected"]
 
         for index in 0..<items.count {
             items[index].image = UIImage(named: unSelectedImages[index])
