@@ -11,6 +11,9 @@ import SnapKit
 
 class TikkleListViewController: UIViewController {
     
+    var tikkle: Tikkle?
+    var selectedTikkleSheet: TikkleSheet?
+    
     var dropdownView: UIView!
     var dropdownLabels: [UILabel]!
     
@@ -40,10 +43,10 @@ class TikkleListViewController: UIViewController {
         let button = UIButton(type: .system)
         
         // 타이틀 설정
-        button.setTitle("   진행중", for: .normal)
+        button.setTitle("  진행중", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.contentHorizontalAlignment = .left
-
+        
         // 버튼 테두리 색상 설정
         button.layer.borderColor = UIColor.mainColor.cgColor
         button.layer.borderWidth = 1.0
@@ -52,7 +55,7 @@ class TikkleListViewController: UIViewController {
         // 버튼 배경색 설정
         button.backgroundColor = UIColor.white.withAlphaComponent(0.05)
         
- 
+        
         return button
     }()
     
@@ -76,6 +79,7 @@ class TikkleListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         tableView.reloadData()
+        updateCountLabel()
     }
     
     override func viewDidLoad() {
@@ -84,6 +88,8 @@ class TikkleListViewController: UIViewController {
         setupTableView()
         setupDropdownView()
         
+        // 티끌 리스트 데이터 생성
+        tikkleListManager.makeTikkleListDatas()
         
     }
     
@@ -93,18 +99,23 @@ class TikkleListViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    func updateCountLabel() {
+        let count = tikkleListManager.getTikkleList().count
+        countLabel.text = "\(count) 장"
+    }
+
+    
     func setupTableView() {
-        // 1. 셀 클래스 등록
         tableView.register(TikkleListTableViewCell.self, forCellReuseIdentifier: "TikkleListCell")
         
-        // 2. 데이터 소스와 델리게이트 설정
         tableView.dataSource = self
         tableView.delegate = self
         
         tableView.backgroundColor = .clear
-        // 추가적인 테이블뷰 설정 (옵션)
-        tableView.tableFooterView = UIView()  // 빈 셀에 대한 구분선 제거
+        
+        tableView.separatorColor = .mainColor.withAlphaComponent(0.3)
     }
+    
     func setupDropdownView() {
         dropdownView = UIView()
         dropdownView.backgroundColor = .white
@@ -140,10 +151,8 @@ class TikkleListViewController: UIViewController {
     }
     
     func setupDropdownButton() {
-        // dropdownButton을 뷰에 추가
         view.addSubview(dropdownButton)
         
-        // 이후 SnapKit을 사용해 제약 조건 설정
         dropdownButton.snp.makeConstraints { make in
             make.centerY.equalTo(titleLabel)
             make.trailing.equalTo(view).offset(-20)
@@ -153,24 +162,27 @@ class TikkleListViewController: UIViewController {
         
         if let dropdownImage = UIImage(systemName: "arrowtriangle.down.fill") {
             let tintedImage = dropdownImage.withTintColor(.mainColor, renderingMode: .alwaysOriginal)
-               let imageView = UIImageView(image: tintedImage)
-               dropdownButton.addSubview(imageView)
-               
-               // UIImageView에 대한 제약 조건 설정
-               imageView.snp.makeConstraints { make in
-                   make.centerY.equalTo(dropdownButton)
-                   make.trailing.equalTo(dropdownButton).offset(-10)
-                   make.width.height.equalTo(13)
-               }
-           }
+            let imageView = UIImageView(image: tintedImage)
+            dropdownButton.addSubview(imageView)
+            
+            imageView.snp.makeConstraints { make in
+                make.centerY.equalTo(dropdownButton)
+                make.trailing.equalTo(dropdownButton).offset(-10)
+                make.width.height.equalTo(13)
+            }
+        }
         
         
-    
+        
         // 버튼 액션 설정
         dropdownButton.addTarget(self, action: #selector(toggleDropdown), for: .touchUpInside)
     }
     
-    
+    func navigateToTikkleSheetViewController(for tikkleSheet: TikkleSheet) {
+        let tikkleSheetVC = TikkleSheetViewController()
+        tikkleSheetVC.tikkle = tikkleSheet
+        navigationController?.pushViewController(tikkleSheetVC, animated: true)
+    }
     
     @objc func toggleDropdown() {
         dropdownView.isHidden = !dropdownView.isHidden
@@ -189,31 +201,32 @@ class TikkleListViewController: UIViewController {
         view.backgroundColor = .black
         
         view.addSubview(titleLabel)
+        view.addSubview(countLabel)
+        view.addSubview(tableView)
+        view.addSubview(createTikkleButton)
+        setupDropdownButton()
+        
+        
+        
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
             make.leading.equalTo(view).offset(20)
         }
         
-        setupDropdownButton()
         
-        
-        view.addSubview(countLabel)
         countLabel.snp.makeConstraints { make in
             make.bottom.equalTo(titleLabel)
             make.leading.equalTo(titleLabel.snp.trailing).offset(10)
         }
         
         
-        
-        view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
             make.leading.equalTo(view).offset(16)
             make.trailing.equalTo(view).offset(-16)
-            make.bottom.equalTo(view)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
         
-        view.addSubview(createTikkleButton)
         createTikkleButton.snp.makeConstraints { make in
             make.width.height.equalTo(45)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
@@ -233,7 +246,37 @@ extension TikkleListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TikkleListCell", for: indexPath) as! TikkleListTableViewCell
-        cell.titleLabel.text = tikkleListManager[indexPath.row].title.description
+        
+        let tikkleSheet = tikkleListManager[indexPath.row]
+        cell.titleLabel.text = tikkleSheet.title
+        cell.squareImageView.image = tikkleSheet.image
+        cell.setDateLabel(createDate: tikkleSheet.createDate) 
+        
+        //percentLabel 설정
+        let completedCount = tikkleListManager[indexPath.row].stampList.filter { $0.isCompletion }.count
+        let totalCount = tikkleListManager[indexPath.row].stampList.count
+        
+        // percentLabel : 퍼센트 값 계산
+        let percentage: Double
+        if totalCount != 0 { // 나눌 값이 0이면 안돼!
+            percentage = (Double(completedCount) / Double(totalCount)) * 100.0
+        } else {
+            percentage = 0
+        }
+        
+        //percentLabel에 설정
+        cell.percentLabel.text = "\(Int(percentage))%"
+        
+        
+        for (index, tikkle) in tikkleSheet.stampList.prefix(10).enumerated() {
+            if index < cell.circleViews.count {
+                if tikkle.isCompletion {
+                    cell.circleViews[index].backgroundColor = .white
+                } else {
+                    cell.circleViews[index].backgroundColor = UIColor.white.withAlphaComponent(0.1)
+                }
+            }
+        }
         
         return cell
     }
@@ -241,6 +284,13 @@ extension TikkleListViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension TikkleListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedTikkle = tikkleListManager[indexPath.row]
+        navigateToTikkleSheetViewController(for: selectedTikkle)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 170

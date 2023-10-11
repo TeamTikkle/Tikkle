@@ -11,11 +11,11 @@ import SnapKit
 class TikkleListTableViewCell: UITableViewCell {
     
     var circleViews: [UIView] = []
-
+    
     
     let containerView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.white.withAlphaComponent(0.08)
+        //        view.backgroundColor = UIColor.white.withAlphaComponent(0.08)
         view.layer.cornerRadius = 5
         return view
     }()
@@ -29,15 +29,38 @@ class TikkleListTableViewCell: UITableViewCell {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 22)
+        label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = .white
         
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 10 // 행간 설정
+            paragraphStyle.lineSpacing = 3 // 행간 설정
+
+            let attributedString = NSAttributedString(string: "Title",
+                                                      attributes: [.paragraphStyle: paragraphStyle])
+            label.attributedText = attributedString
         
         
         return label
     }()
+    
+    let subTitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.textColor = .white.withAlphaComponent(0.7)
+        return label
+    }()
+
+    
+    lazy var pinImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "pinIcon")
+        imageView.tintColor = .white
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(pinButtonTapped)))
+        return imageView
+    }()
+    
+    var isPinned: Bool = false
     
     
     let percentLabel: UILabel = {
@@ -69,11 +92,33 @@ class TikkleListTableViewCell: UITableViewCell {
     }
     
     
+    
+    @objc func pinButtonTapped() {
+        isPinned.toggle()
+        pinImageView.image = isPinned ? UIImage(named: "pinIcon.fill") : UIImage(named: "pinIcon")
+        // 테이블뷰 상단에 셀 고정하는 로직 추가해야함. 아직 안 했음.
+    }
+    
+    func setDateLabel(createDate: Date) {
+        let currentDate = Date()
+        let calendar = Calendar.current
+
+        if let diff = calendar.dateComponents([.day], from: createDate, to: currentDate).day {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yy.MM.dd"
+            let formattedStartDate = dateFormatter.string(from: createDate)
+            
+            subTitleLabel.text = "\(diff+1)일째 도전중 \(formattedStartDate) ~ 현재"
+        }
+    }
 
     
     
-    
     func setupUI() {
+        
+        titleLabel.numberOfLines = 2
+        titleLabel.lineBreakMode = .byTruncatingTail
+        
         self.selectionStyle = .none
         
         
@@ -83,41 +128,50 @@ class TikkleListTableViewCell: UITableViewCell {
         self.layer.cornerRadius = 5
         self.clipsToBounds = true
         
-        
         contentView.addSubview(containerView)
+        contentView.addSubview(squareImageView)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(subTitleLabel)
+        contentView.addSubview(pinImageView)
+        contentView.addSubview(percentLabel)
+        contentView.addSubview(achievementGraph)
+        
+        
         containerView.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(contentView) // 좌우는 contentView에 붙이고,
-            make.top.equalTo(contentView).offset(7.5)   // 위쪽은 7.5만큼 떨어뜨리고,
-            make.bottom.equalTo(contentView).offset(-7.5) // 아래쪽은 7.5만큼 떨어뜨림
+            make.leading.trailing.equalTo(contentView)
+            make.top.equalTo(contentView).offset(7.5)
+            make.bottom.equalTo(contentView).offset(-7.5)
         }
         
-        // squareImageView 설정 및 배치
-        contentView.addSubview(squareImageView)
         squareImageView.snp.makeConstraints { make in
             make.leading.equalTo(contentView).offset(10)
             make.centerY.equalTo(contentView)
             make.width.height.equalTo(135)
         }
         
-        // titleLabel 설정 및 배치
-        contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.leading.equalTo(squareImageView.snp.trailing).offset(20)
-            make.top.equalTo(contentView).offset(10)
+            make.top.equalTo(squareImageView).offset(5)
             make.trailing.lessThanOrEqualTo(contentView).offset(-20)
         }
-        titleLabel.numberOfLines = 2  // 최대 2줄
-        titleLabel.lineBreakMode = .byTruncatingTail  // 두 줄이 넘어가면 '...'으로 표시
         
-        // percentLabel 설정 및 배치
-        contentView.addSubview(percentLabel)
-        percentLabel.snp.makeConstraints { make in
+        subTitleLabel.snp.makeConstraints { make in
             make.leading.equalTo(titleLabel)
             make.top.equalTo(titleLabel.snp.bottom).offset(5)
+            make.trailing.lessThanOrEqualTo(contentView).offset(-20)
         }
         
-        // achievementGraph 설정 및 배치
-        contentView.addSubview(achievementGraph)
+        pinImageView.snp.makeConstraints { make in
+                make.top.equalTo(titleLabel)
+                make.leading.equalTo(titleLabel.snp.trailing).offset(10)
+                make.trailing.equalTo(contentView).offset(-10)
+                make.width.height.equalTo(20)
+            }
+        
+        percentLabel.snp.makeConstraints { make in
+            make.leading.equalTo(titleLabel)
+        }
+        
         achievementGraph.snp.makeConstraints { make in
             make.leading.equalTo(titleLabel).offset(-1)
             make.top.equalTo(percentLabel.snp.bottom).offset(5)
@@ -125,14 +179,13 @@ class TikkleListTableViewCell: UITableViewCell {
             make.bottom.equalTo(contentView).offset(-20)
             make.width.equalTo(contentView).offset(-135 - 35)
         }
-
-        // 동그라미들 배치
+        
         for i in 0..<10 {
             let circleView = UIView()
             circleView.backgroundColor = UIColor.white.withAlphaComponent(0.1)
             achievementGraph.addSubview(circleView)
             circleViews.append(circleView)
-
+            
             circleView.snp.makeConstraints { make in
                 make.height.equalTo(achievementGraph)
                 make.width.equalTo(achievementGraph).dividedBy(13) // 동그라미와 간격을 고려한 너비 설정
@@ -143,7 +196,7 @@ class TikkleListTableViewCell: UITableViewCell {
                 }
                 make.centerY.equalTo(achievementGraph)
             }
-
+            
             DispatchQueue.main.async {
                 circleView.layer.cornerRadius = circleView.frame.height / 2.0
             }
