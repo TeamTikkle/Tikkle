@@ -21,20 +21,25 @@ class MainViewController: UITabBarController {
         let tabBarAppearance = UITabBarAppearance()
         tabBarAppearance.configureWithTransparentBackground()
         tabBar.standardAppearance = tabBarAppearance
-        self.tabBar.tintColor = .mainColor
+        self.tabBar.tintColor = .white
     }
 
     private func viewControllerSetting() {
-        let vc1 = createNavigationController(viewController: TikkleListViewController())
-        let vc2 = createNavigationController(viewController: FeedViewController())
+        let vc1 = createNavigationController(viewController: FeedViewController())
+        let vc2 = createNavigationController(viewController: TikkleListViewController())
         let vc3 = createNavigationController(viewController: InfoViewController())
 
         self.setViewControllers([vc1, vc2, vc3], animated: false)
 
         guard let items = self.tabBar.items else { return }
+        
+        vc1.tabBarItem.title = "Template"
+        vc2.tabBarItem.title = "Tikkle"
+        vc3.tabBarItem.title = "Info"
 
-        let unSelectedImages = ["tabBarTikkleListPageUnselected", "tabBarFeedPageUnselected", "tabBarMyPageUnselected"]
-        let selectedImages = ["tabBarTikkleListPageSelected", "tabBarFeedPageSelected", "tabBarMyPageSelected"]
+        let unSelectedImages = ["tabBarTemplatePageUnselected", "tabBarTikklePageUnselected", "tabBarInfoPageUnselected"]
+        
+        let selectedImages = ["tabBarTemplatePageSelected", "tabBarTikklePageSelected", "tabBarInfoPageSelected"]
 
         for index in 0..<items.count {
             items[index].image = UIImage(named: unSelectedImages[index])
