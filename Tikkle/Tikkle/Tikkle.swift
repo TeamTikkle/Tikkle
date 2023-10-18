@@ -8,11 +8,13 @@ import Foundation
 import UIKit
 
 class Tikkle {
+    let id: UUID
     var title: String
     var image: UIImage?
     var isCompletion: Bool
     
-    init(title: String, image: UIImage? = nil, isCompletion: Bool) {
+    init(id: UUID = UUID(), title: String, image: UIImage? = nil, isCompletion: Bool) {
+        self.id = id
         self.title = title
         self.image = image
         self.isCompletion = isCompletion

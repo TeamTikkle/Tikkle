@@ -182,7 +182,7 @@ private extension CreateTikkleViewController {
         
         let image = getImage()
         
-        let tikkle = TikkleSheet(image: image,title: challengeNameText, description: infoText, isSharedProject: false, stampList: stampList)
+        let tikkle = TikkleSheet(image: image,title: challengeNameText, description: infoText, stampList: stampList)
         tikkleListManager.addTikkle(tikkle)
         navigationController?.popViewController(animated: true)
     }
