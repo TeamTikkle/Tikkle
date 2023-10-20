@@ -127,7 +127,7 @@ let coding: TikkleSheet = TikkleSheet(image: UIImage(named: "coding"), title: "8
     Tikkle(title: "19일", isCompletion: true),
     Tikkle(title: "20일", isCompletion: true),
     Tikkle(title: "21일", isCompletion: false),
-    Tikkle(title: "22일", isCompletion: false),
+    Tikkle(title: "22일", isCompletion: true),
     Tikkle(title: "23일", isCompletion: false),
     Tikkle(title: "24일", isCompletion: false),
     Tikkle(title: "25일", isCompletion: false),

@@ -94,5 +94,9 @@ class CustomButton: UIButton {
         return makeButton(title: "60개", color: UIColor.subTitleColor)
     }
     
+    //tikklesheet
+    static func challengeButton() -> UIButton {
+        return makeButton(title: "도전하기", color: UIColor.subTitleColor)
+    }
     
 }

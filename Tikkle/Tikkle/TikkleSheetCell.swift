@@ -29,7 +29,7 @@ class TikkleSheetCell: UICollectionViewCell {
     lazy var tikkleNameText: UILabel = {
         let tikkleNameText = UILabel()
         tikkleNameText.font = .systemFont(ofSize: 15, weight: .regular)
-        tikkleNameText.textColor = .black
+        tikkleNameText.textColor = .mainColor
         return tikkleNameText
     }()
     
@@ -64,9 +64,9 @@ class TikkleSheetCell: UICollectionViewCell {
         
         tikkleNameText.text = tikkle.stampList[index].title
         if tikkle.stampList[index].isCompletion == true {
-            tikkleButton.setImage(UIImage(named: "TikkleON.png"), for: .normal)
+            tikkleButton.setImage(UIImage(named: "TikkleON"), for: .normal)
         } else {
-            tikkleButton.setImage(UIImage(named: "TikkleOFF.png"), for: .normal)
+            tikkleButton.setImage(UIImage(named: "TikkleOFF"), for: .normal)
         }
     }
 }

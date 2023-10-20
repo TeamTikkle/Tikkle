@@ -25,9 +25,9 @@ class TikkleSheetViewController: UIViewController {
     
     lazy var tikkleImage: UIImageView = {
         let tikkleImage = UIImageView()
-        tikkleImage.contentMode = .scaleAspectFit
-        tikkleImage.backgroundColor = .green
-        tikkleImage.layer.cornerRadius = 55
+        tikkleImage.contentMode = .scaleAspectFill
+        tikkleImage.layer.cornerRadius = tikkleImage.frame.height / 2
+        tikkleImage.clipsToBounds = true
         return tikkleImage
     }()
     
@@ -70,10 +70,6 @@ class TikkleSheetViewController: UIViewController {
     
     lazy var tikkleChallengeButton: UIButton = {
         let tikkleChallengeButton = UIButton()
-        tikkleChallengeButton.setTitle("도전하기", for: .normal)
-        tikkleChallengeButton.setTitleColor(.black, for: .normal)
-        tikkleChallengeButton.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .regular)
-        tikkleChallengeButton.backgroundColor = .mainColor
         return tikkleChallengeButton
     }()
     
@@ -85,6 +81,7 @@ class TikkleSheetViewController: UIViewController {
         tikkleCollectionView.register(TikkleSheetCell.self, forCellWithReuseIdentifier: "TikkleSheetCell")
         tikkleCollectionView.delegate = self
         tikkleCollectionView.dataSource = self
+        tikkleCollectionView.backgroundColor = .black
         return tikkleCollectionView
     }()
     
@@ -93,22 +90,28 @@ class TikkleSheetViewController: UIViewController {
         
         navigationSetting()
         uiSet()
-        tikkleCollectionPirnt()
     }
     
     //MARK: - TikklePage NavigationBar 커스텀
     func navigationSetting() {
-        guard let naviBar = navigationController?.navigationBar else { return }
-        
+        guard let navigationBar = navigationController?.navigationBar else {return}
+        let naviBarAppearance = UINavigationBarAppearance()
+        naviBarAppearance.configureWithTransparentBackground()
+        navigationBar.standardAppearance = naviBarAppearance
+        navigationBar.scrollEdgeAppearance = naviBarAppearance
+
         self.navigationController?.navigationBar.tintColor = UIColor.mainColor
         self.navigationController?.navigationBar.topItem?.title = ""
         
-        let deleteImage = UIImage(named: "delete")
-        let deleteImageview = UIImageView(image: deleteImage)
-        deleteImageview.contentMode = .scaleAspectFit
-        
-        //MARK: - TikklePage 포기하기 버튼 커스텀, 클릭 시 deleteAlert 함수 실행
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: deleteImage, style: .plain, target: self, action: #selector(TikkleSheetViewController.deleteAlert))
+        let deleteImage = UIImage(named: "navi_delete")
+        let deleteImageView = UIImageView(image: deleteImage)
+        deleteImageView.contentMode = .scaleAspectFit
+        let deleteItem = UIBarButtonItem(customView: deleteImageView)
+        //hoon
+        deleteItem.target = self
+        deleteItem.action = #selector(TikkleSheetViewController.deleteAlert)
+        navigationItem.rightBarButtonItem = deleteItem
+
     }
     
     //MARK: - 포기하기 버튼 동작
@@ -132,7 +135,6 @@ class TikkleSheetViewController: UIViewController {
     //MARK: - TikklePage Image, Title, Info, 날짜 세팅 가져오기
     func uiSet() {
         view.addSubview(tikkleIntroStackView)
-        
         tikkleIntroStackView.snp.makeConstraints { make in
             make.centerX.equalTo(self.view)
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(10)
@@ -141,24 +143,23 @@ class TikkleSheetViewController: UIViewController {
         }
         
         tikkleImage.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 110, height: 110))
+            make.width.equalTo(110)
+            make.height.equalTo(110)
         }
         
         guard let unwrappedTikkle = tikkle else { return }
         
         tikkleImage.image = unwrappedTikkle.image
-        tikkleImage.contentMode = .scaleAspectFill
-        tikkleImage.layer.cornerRadius = tikkleImage.frame.height / 2
         tikkleTitle.text = unwrappedTikkle.title
         tikkleInfoText.text = unwrappedTikkle.description
         updateLabelsBasedOnChallenge(isChallenge: tikkleListManager.getTikkle(where: unwrappedTikkle.id) != nil)
         challengeUpdate(isChallenge: tikkleListManager.getTikkle(where: unwrappedTikkle.id) != nil)
-    }
     
-    //
-    func tikkleCollectionPirnt() {
-        view.addSubview(tikkleCollectionView)
+        tikkleChallengeButton.snp.makeConstraints { make in
+            make.width.equalTo(100)
+        }
         
+        view.addSubview(tikkleCollectionView)
         tikkleCollectionView.snp.makeConstraints { make in
             make.top.equalTo(tikkleIntroStackView.snp.bottom).offset(10)
             make.leading.equalTo(self.view.safeAreaLayoutGuide).offset(10)
@@ -205,6 +206,7 @@ class TikkleSheetViewController: UIViewController {
         if isChallenge {
             tikkleChallengeButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
             tikkleChallengeButton.setTitle("도전중", for: .normal)
+            tikkleChallengeButton.setTitleColor(.black, for: .normal)
             tikkleChallengeButton.isUserInteractionEnabled = false
             tikkleChallengeButton.backgroundColor = .mainColor
             tikkleChallengeButton.layer.cornerRadius = 17
@@ -212,9 +214,10 @@ class TikkleSheetViewController: UIViewController {
             navigationItem.rightBarButtonItem?.isEnabled = true
             navigationItem.rightBarButtonItem?.tintColor = .mainColor
         } else {
-            guard let tikkle else { return }
+            guard tikkle != nil else { return }
             tikkleChallengeButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
             tikkleChallengeButton.setTitle("도전하기", for: .normal)
+            tikkleChallengeButton.setTitleColor(.black, for: .normal)
             tikkleChallengeButton.backgroundColor = .mainColor
             tikkleChallengeButton.layer.cornerRadius = 17
             tikkleChallengeButton.layer.masksToBounds = true
