@@ -2,28 +2,94 @@
 //  TikkleSheetViewController.swift
 //  Tikkle
 //
-//  Created by 김지훈 on 11/30/23.
+//  Created by 김도현 on 2023/08/15.
 //
 
 import UIKit
+import SnapKit
 
-class TikkleSheetViewController: UIViewController {
+class TikkleViewController: UIViewController {
     
     var tikkle: TikkleSheet?
     var tikkleListManager: TikkleListManager = TikkleListManager()
     var isChallenged: Bool = false
     
-    private lazy var tikkleInfoView = TikkleInfoView()
-    private lazy var tikkleCollectionView = TikkleCollectionView()
-
+    lazy var tikkleIntroStackView: UIStackView = {
+        let tikkleIntroStackView = UIStackView(arrangedSubviews: [tikkleImage, tikkleTitle, tikkleChallengeStackView, tikkleInfoText, tikkleChallengeButton])
+        tikkleIntroStackView.axis = .vertical
+        tikkleIntroStackView.alignment = .center
+        tikkleIntroStackView.spacing = 10
+        tikkleIntroStackView.backgroundColor = .black
+        return tikkleIntroStackView
+    }()
+    
+    lazy var tikkleImage: UIImageView = {
+        let tikkleImage = UIImageView()
+        tikkleImage.contentMode = .scaleAspectFill
+        tikkleImage.layer.cornerRadius = tikkleImage.frame.height / 2
+        tikkleImage.clipsToBounds = true
+        return tikkleImage
+    }()
+    
+    lazy var tikkleTitle: UILabel = {
+        let tikkleTitle = UILabel()
+        tikkleTitle.font = .systemFont(ofSize: 20, weight: .bold)
+        tikkleTitle.textColor = .white
+        return tikkleTitle
+    }()
+    
+    lazy var tikkleChallengeStackView: UIStackView = {
+        let tikkleChallengeStackView = UIStackView(arrangedSubviews: [tikkleChallengeText, tikkleDateText])
+        tikkleChallengeStackView.axis = .horizontal
+        tikkleChallengeStackView.spacing = 10
+        return tikkleChallengeStackView
+    }()
+    
+    lazy var tikkleChallengeText: UILabel = {
+        let tikkleChallengeText = UILabel()
+        tikkleChallengeText.font = .systemFont(ofSize: 13, weight: .regular)
+        tikkleChallengeText.textColor = .mainColor
+        return tikkleChallengeText
+    }()
+    
+    lazy var tikkleDateText: UILabel = {
+        let tikkleDateText = UILabel()
+        tikkleDateText.font = .systemFont(ofSize: 13, weight: .regular)
+        tikkleDateText.textColor = .subTitleColor
+        return tikkleDateText
+    }()
+    
+    lazy var tikkleInfoText: UILabel = {
+        let tikkleInfoText = UILabel()
+        tikkleInfoText.font = .systemFont(ofSize: 15, weight: .regular)
+        tikkleInfoText.textColor = .subTitleColor
+        tikkleInfoText.numberOfLines = 2
+        tikkleInfoText.backgroundColor = .black
+        return tikkleInfoText
+    }()
+    
+    lazy var tikkleChallengeButton: UIButton = {
+        let tikkleChallengeButton = UIButton()
+        return tikkleChallengeButton
+    }()
+    
+    lazy var tikkleCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        let tikkleCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        tikkleCollectionView.backgroundColor = .systemBackground
+        tikkleCollectionView.register(TikkleSheetCell.self, forCellWithReuseIdentifier: "TikkleSheetCell")
+        tikkleCollectionView.delegate = self
+        tikkleCollectionView.dataSource = self
+        tikkleCollectionView.backgroundColor = .black
+        return tikkleCollectionView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .black
-        
         navigationSetting()
-//        tikkleCollectionSetting()
-        setupUI()
+        uiSet()
     }
     
     //MARK: - TikklePage NavigationBar 커스텀
@@ -43,8 +109,9 @@ class TikkleSheetViewController: UIViewController {
         let deleteItem = UIBarButtonItem(customView: deleteImageView)
         //hoon
         deleteItem.target = self
-        deleteItem.action = #selector(TikkleSheetViewController.deleteAlert)
+        deleteItem.action = #selector(TikkleViewController.deleteAlert)
         navigationItem.rightBarButtonItem = deleteItem
+
     }
     
     //MARK: - 포기하기 버튼 동작
@@ -65,58 +132,51 @@ class TikkleSheetViewController: UIViewController {
         self.present(deleteAlert, animated: true)
     }
     
-//    func tikkleCollectionSetting() {
-//        tikkleCollectionView.dataSource = self
-//        tikkleCollectionView.delegate = self
-//    }
-    
-    func setupUI() {
-        view.addSubview(tikkleInfoView)
-        view.addSubview(tikkleCollectionView)
+    //MARK: - TikklePage Image, Title, Info, 날짜 세팅 가져오기
+    func uiSet() {
+        view.addSubview(tikkleIntroStackView)
+        tikkleIntroStackView.snp.makeConstraints { make in
+            make.centerX.equalTo(self.view)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(10)
+            make.leading.equalTo(self.view.safeAreaLayoutGuide).offset(50)
+            make.trailing.equalTo(self.view.safeAreaLayoutGuide).offset(-50)
+        }
         
-        tikkleInfoView.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide)
-            make.leading.equalTo(self.view.safeAreaLayoutGuide).offset(10)
-            make.trailing.equalTo(self.view.safeAreaLayoutGuide).offset(-10)
+        tikkleImage.snp.makeConstraints { make in
+            make.width.equalTo(110)
+            make.height.equalTo(110)
         }
         
         guard let unwrappedTikkle = tikkle else { return }
         
-        tikkleInfoView.tikkleImage.image = unwrappedTikkle.image
-        
-        
-        
-        tikkleInfoView.tikkleTitle.text = unwrappedTikkle.title
-        tikkleInfoView.tikkleInfoText.text = unwrappedTikkle.description
+        tikkleImage.image = unwrappedTikkle.image
+        tikkleTitle.text = unwrappedTikkle.title
+        tikkleInfoText.text = unwrappedTikkle.description
         updateLabelsBasedOnChallenge(isChallenge: tikkleListManager.getTikkle(where: unwrappedTikkle.id) != nil)
         challengeUpdate(isChallenge: tikkleListManager.getTikkle(where: unwrappedTikkle.id) != nil)
     
-        tikkleInfoView.tikkleChallengeButton.snp.makeConstraints { make in
+        tikkleChallengeButton.snp.makeConstraints { make in
             make.width.equalTo(100)
         }
         
-        tikkleCollectionView.dataSource = self
-        tikkleCollectionView.delegate = self
-        
+        view.addSubview(tikkleCollectionView)
         tikkleCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(tikkleInfoView.snp.bottom).offset(10)
+            make.top.equalTo(tikkleIntroStackView.snp.bottom).offset(10)
             make.leading.equalTo(self.view.safeAreaLayoutGuide).offset(10)
             make.trailing.equalTo(self.view.safeAreaLayoutGuide).offset(-10)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }
-        
-        tikkleCollectionView.register(TikkleSheetCell.self, forCellWithReuseIdentifier: "TikkleSheetCell")
     }
     
     func updateLabelsBasedOnChallenge(isChallenge: Bool) {
         if isChallenge {
             updateDateLabel()
             updateDaysLabel()
-            tikkleInfoView.tikkleChallengeText.isHidden = false
-            tikkleInfoView.tikkleChallengeText.isHidden = false
+            tikkleChallengeText.isHidden = false
+            tikkleChallengeText.isHidden = false
         } else {
-            tikkleInfoView.tikkleChallengeText.text = "00.00.00"
-            tikkleInfoView.tikkleChallengeText.text = "도전중이 아닙니다"
+            tikkleChallengeText.text = "00.00.00"
+            tikkleChallengeText.text = "도전중이 아닙니다"
         }
     }
     
@@ -126,7 +186,7 @@ class TikkleSheetViewController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yy.MM.dd ~ 현재"
         let formattedDate = dateFormatter.string(from: tikkle.createDate)
-        tikkleInfoView.tikkleDateText.text = formattedDate
+        tikkleDateText.text = formattedDate
     }
     
     //n일 째 도전 중 출력 함수
@@ -138,41 +198,39 @@ class TikkleSheetViewController: UIViewController {
 
         // createDate와 현재 날짜 사이의 차이 계산
         if let diff = calendar.dateComponents([.day], from: createDate, to: currentDate).day {
-            tikkleInfoView.tikkleChallengeText.text = "\(diff+1)일째 도전 중"
+            tikkleChallengeText.text = "\(diff+1)일째 도전 중"
         }
     }
     
-    //
     func challengeUpdate(isChallenge: Bool) {
         if isChallenge {
-            tikkleInfoView.tikkleChallengeButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-            tikkleInfoView.tikkleChallengeButton.setTitle("도전중", for: .normal)
-            tikkleInfoView.tikkleChallengeButton.setTitleColor(.black, for: .normal)
-            tikkleInfoView.tikkleChallengeButton.isUserInteractionEnabled = false
-            tikkleInfoView.tikkleChallengeButton.backgroundColor = .mainColor
-            tikkleInfoView.tikkleChallengeButton.layer.cornerRadius = 17
-            tikkleInfoView.tikkleChallengeButton.layer.masksToBounds = true
+            tikkleChallengeButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+            tikkleChallengeButton.setTitle("도전중", for: .normal)
+            tikkleChallengeButton.setTitleColor(.black, for: .normal)
+            tikkleChallengeButton.isUserInteractionEnabled = false
+            tikkleChallengeButton.backgroundColor = .mainColor
+            tikkleChallengeButton.layer.cornerRadius = 17
+            tikkleChallengeButton.layer.masksToBounds = true
             navigationItem.rightBarButtonItem?.isEnabled = true
             navigationItem.rightBarButtonItem?.tintColor = .mainColor
         } else {
             guard tikkle != nil else { return }
-            tikkleInfoView.tikkleChallengeButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-            tikkleInfoView.tikkleChallengeButton.setTitle("도전하기", for: .normal)
-            tikkleInfoView.tikkleChallengeButton.setTitleColor(.black, for: .normal)
-            tikkleInfoView.tikkleChallengeButton.backgroundColor = .mainColor
-            tikkleInfoView.tikkleChallengeButton.layer.cornerRadius = 17
-            tikkleInfoView.tikkleChallengeButton.layer.masksToBounds = true
+            tikkleChallengeButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+            tikkleChallengeButton.setTitle("도전하기", for: .normal)
+            tikkleChallengeButton.setTitleColor(.black, for: .normal)
+            tikkleChallengeButton.backgroundColor = .mainColor
+            tikkleChallengeButton.layer.cornerRadius = 17
+            tikkleChallengeButton.layer.masksToBounds = true
             navigationItem.rightBarButtonItem?.isEnabled = false
             navigationItem.rightBarButtonItem?.tintColor = .clear
         }
                         
     }
 
-
 }
 
 //MARK: - TikklePage CollectionView Setting
-extension TikkleSheetViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension TikkleViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tikkle?.stampList.count ?? 0
     }
@@ -210,4 +268,3 @@ extension TikkleSheetViewController: UICollectionViewDelegate, UICollectionViewD
         collectionView.reloadData()
     }
 }
-

@@ -30,12 +30,15 @@
 		18FEC5CD2A8CD48400A804DD /* CarouselLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FEC5CC2A8CD48400A804DD /* CarouselLayout.swift */; };
 		18FEC5CF2A8CDFA100A804DD /* OtherTikkleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FEC5CE2A8CDFA100A804DD /* OtherTikkleCollectionViewCell.swift */; };
 		18FEC5D12A8CFCF400A804DD /* OtherTikkleCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FEC5D02A8CFCF400A804DD /* OtherTikkleCollectionReusableView.swift */; };
+		B85D10682B1866B100F2C54A /* TikkleInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85D10672B1866B100F2C54A /* TikkleInfoView.swift */; };
+		B85D106A2B1866D300F2C54A /* TikkleCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85D10692B1866D300F2C54A /* TikkleCollectionView.swift */; };
+		B85D106C2B18CD2400F2C54A /* TikkleSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85D106B2B18CD2400F2C54A /* TikkleSheetViewController.swift */; };
 		B8C80ACF2AB9934200F0755C /* MakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C80ACE2AB9934200F0755C /* MakerViewController.swift */; };
 		B8C80AD22AB9935000F0755C /* FixRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C80AD12AB9935000F0755C /* FixRequestViewController.swift */; };
 		B8C80AD52AB9935F00F0755C /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C80AD42AB9935F00F0755C /* NoticeViewController.swift */; };
 		B8C80AD72AB9936600F0755C /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C80AD62AB9936600F0755C /* InfoCell.swift */; };
 		B8C80AD92AB9936B00F0755C /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C80AD82AB9936B00F0755C /* InfoViewController.swift */; };
-		B8C80ADB2AB9942D00F0755C /* TikkleSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C80ADA2AB9942D00F0755C /* TikkleSheetViewController.swift */; };
+		B8C80ADB2AB9942D00F0755C /* TikkleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C80ADA2AB9942D00F0755C /* TikkleViewController.swift */; };
 		B8C80ADD2AB9943400F0755C /* TikkleSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C80ADC2AB9943400F0755C /* TikkleSheetCell.swift */; };
 		D87784352A8C7151002B26F9 /* TikkleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87784342A8C7151002B26F9 /* TikkleListTableViewCell.swift */; };
 		D877843B2A8D10EC002B26F9 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D877843A2A8D10EC002B26F9 /* CustomButton.swift */; };
@@ -67,12 +70,15 @@
 		18FEC5CC2A8CD48400A804DD /* CarouselLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselLayout.swift; sourceTree = "<group>"; };
 		18FEC5CE2A8CDFA100A804DD /* OtherTikkleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherTikkleCollectionViewCell.swift; sourceTree = "<group>"; };
 		18FEC5D02A8CFCF400A804DD /* OtherTikkleCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherTikkleCollectionReusableView.swift; sourceTree = "<group>"; };
+		B85D10672B1866B100F2C54A /* TikkleInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleInfoView.swift; sourceTree = "<group>"; };
+		B85D10692B1866D300F2C54A /* TikkleCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleCollectionView.swift; sourceTree = "<group>"; };
+		B85D106B2B18CD2400F2C54A /* TikkleSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleSheetViewController.swift; sourceTree = "<group>"; };
 		B8C80ACE2AB9934200F0755C /* MakerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakerViewController.swift; sourceTree = "<group>"; };
 		B8C80AD12AB9935000F0755C /* FixRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixRequestViewController.swift; sourceTree = "<group>"; };
 		B8C80AD42AB9935F00F0755C /* NoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		B8C80AD62AB9936600F0755C /* InfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		B8C80AD82AB9936B00F0755C /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
-		B8C80ADA2AB9942D00F0755C /* TikkleSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TikkleSheetViewController.swift; sourceTree = "<group>"; };
+		B8C80ADA2AB9942D00F0755C /* TikkleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TikkleViewController.swift; sourceTree = "<group>"; };
 		B8C80ADC2AB9943400F0755C /* TikkleSheetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TikkleSheetCell.swift; sourceTree = "<group>"; };
 		D87784342A8C7151002B26F9 /* TikkleListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikkleListTableViewCell.swift; sourceTree = "<group>"; };
 		D877843A2A8D10EC002B26F9 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -167,8 +173,9 @@
 		18C8C9172A8B627F008E4C92 /* TikkleSheet */ = {
 			isa = PBXGroup;
 			children = (
-				B8C80ADA2AB9942D00F0755C /* TikkleSheetViewController.swift */,
-				B8C80ADC2AB9943400F0755C /* TikkleSheetCell.swift */,
+				B8C80ADA2AB9942D00F0755C /* TikkleViewController.swift */,
+				B85D106B2B18CD2400F2C54A /* TikkleSheetViewController.swift */,
+				B85D10662B1865B100F2C54A /* View */,
 			);
 			name = TikkleSheet;
 			sourceTree = "<group>";
@@ -241,6 +248,16 @@
 				18FEC5CC2A8CD48400A804DD /* CarouselLayout.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		B85D10662B1865B100F2C54A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B85D10672B1866B100F2C54A /* TikkleInfoView.swift */,
+				B85D10692B1866D300F2C54A /* TikkleCollectionView.swift */,
+				B8C80ADC2AB9943400F0755C /* TikkleSheetCell.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		B8C80ACD2AB9933800F0755C /* Creator */ = {
@@ -343,13 +360,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8C80ADB2AB9942D00F0755C /* TikkleSheetViewController.swift in Sources */,
+				B85D106A2B1866D300F2C54A /* TikkleCollectionView.swift in Sources */,
+				B8C80ADB2AB9942D00F0755C /* TikkleViewController.swift in Sources */,
 				18FEC5D12A8CFCF400A804DD /* OtherTikkleCollectionReusableView.swift in Sources */,
 				18FEC5CD2A8CD48400A804DD /* CarouselLayout.swift in Sources */,
 				189FEDB12A8E885200AF47B0 /* TikkleHorizontalStackView.swift in Sources */,
 				B8C80AD92AB9936B00F0755C /* InfoViewController.swift in Sources */,
 				18A765D82AB7F34A00F90285 /* ThisMonthTikkleHeaderView.swift in Sources */,
+				B85D10682B1866B100F2C54A /* TikkleInfoView.swift in Sources */,
 				18C8C9322A8B6C08008E4C92 /* TikkleSheet.swift in Sources */,
+				B85D106C2B18CD2400F2C54A /* TikkleSheetViewController.swift in Sources */,
 				B8C80AD22AB9935000F0755C /* FixRequestViewController.swift in Sources */,
 				D877843B2A8D10EC002B26F9 /* CustomButton.swift in Sources */,
 				18A765D62AB7F23C00F90285 /* Reusable.swift in Sources */,
